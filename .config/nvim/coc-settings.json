@@ -43,6 +43,7 @@
     "enumMember": "  "
   },
   "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar",
+  "rust-analyzer.checkOnSave.enable": false,
   "languageserver": {
     "ccls": {
       "command": "ccls",

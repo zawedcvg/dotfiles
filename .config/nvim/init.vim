@@ -1,12 +1,15 @@
 source $HOME/.config/nvim/vim-plug/mapping.vim
 source $HOME/.config/nvim/vim-plug/plugins.vim
-source $HOME/.config/nvim/vim-plug/coc.vim
+"source $HOME/.config/nvim/vim-plug/coc.vim
 "set rtp+=/home/neeladri/.config/nvim/plugin
 lua require("status-line")
 lua require("top-bufferline")
 lua require("file-icons")
 lua require("zawed_telescope")
+lua require("zawed_cmp")
+lua require("zawed_lsp")
 set mouse=a
+set signcolumn=number
 set splitbelow splitright
 "set nocompatible
 filetype plugin indent on
@@ -43,10 +46,13 @@ function TrimWhiteSpace()
   ''
 endfunction
 
+set shortmess+=c
+set completeopt=menuone,noinsert,noselect
 "autocmd BufWinEnter * call TrimWhiteSpace()
 "autocmd BufWinLeave * call TrimWhiteSpace()
 "autocmd FilterWritePre * call TrimWhiteSpace()
 "autocmd BufWritePre * call TrimWhiteSpace()
+
 
 map <F2> :call TrimWhiteSpace()<CR>
 "map! <F2> :call TrimWhiteSpace()<CR>
@@ -144,7 +150,7 @@ require 'colorizer'.setup()
 --})
 require("which-key").setup()
 require('nvim-ts-autotag').setup()
-
+--require('rust-tools').setup({})
 --"require'treesitter-context.config'.setup{
 --   "enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
 EOF

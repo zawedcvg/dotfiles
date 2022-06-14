@@ -1,6 +1,6 @@
 nnoremap <SPACE> <Nop>
 let mapleader=" "
-let g:coc_snippet_next = '<tab>'
+"let g:coc_snippet_next = '<tab>'
 
 nmap n <Plug>(searchhi-n)zzzv
 nmap N <Plug>(searchhi-N)zzzv
@@ -43,7 +43,7 @@ let g:user_emmet_leader_key='<C-e>'
 let g:indent_blankline_char = '▏'
 
 "prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+"command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "map <silent> <leader>p :Prettier<CR>
 let g:prettier#autoformat_config_present = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -97,8 +97,8 @@ nnoremap gp `[v`]
 "nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 nnoremap <F5> :UndotreeToggle<CR>
-nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>rc <Plug>(coc-refactor)
+"nmap <leader>rn <Plug>(coc-rename)
+"nmap <leader>rc <Plug>(coc-refactor)
 
 
 "opening netwr
@@ -127,6 +127,8 @@ command Qa qa
 
 "running code
 autocmd FileType python map <buffer> <F9> :exec '!python3' shellescape(@%, 1)<CR>
+"autocmd FileType text map <silent> k gk
+"autocmd FileType text map <silent> j gj
 "autocmd Filetype python nnoremap <buffer> <leader>rp :!python3 %<CR>
 
 "to enable highlighting while jumping
@@ -140,7 +142,9 @@ autocmd FileType python map <buffer> <F9> :exec '!python3' shellescape(@%, 1)<CR
     "redraw
 "endfunction
 
-"stuff for search
+"stuff for lsp
+
+nnoremap <leader>a :Telescope diagnostics
 
 "for terminal
 if has('nvim')
