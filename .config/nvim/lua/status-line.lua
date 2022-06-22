@@ -1,7 +1,7 @@
 local gl = require("galaxyline")
 local gls = gl.section
 local condition = require("galaxyline.condition")
---local gps = require("nvim-gps")
+local navic = require("nvim-navic")
 
 
 gl.short_line_list = {" "}
@@ -114,28 +114,21 @@ gls.left[11] = {
 }
 
 --gls.right[1] = {
-    --lsp_status = {
-        --provider = function()
-            --local clients = vim.lsp.get_active_clients()
-            --if next(clients) ~= nil then
-                --return " " .. "  " .. " LSP "
-            --else
-                --return ""
-            --end
-        --end,
-        --highlight = {colors.grey_fg2, colors.statusline_bg}
+    --nvimNavic = {
+        --provider = navic.get_location(),
+        --condition = navic.is_available()
     --}
 --}
---gls.right[1]= {
-	--nvimGPS = {
-		--provider = function()
-			--return gps.get_location()
-		--end,
-		--condition = function()
-			--return gps.is_available()
-		--end
-	--}
---}
+gls.right[1]= {
+    nvimNavic = {
+        provider = function()
+            return navic.get_location()
+        end,
+        condition = function()
+            return navic.is_available()
+        end
+    }
+}
 
 
 gls.right[2] = {

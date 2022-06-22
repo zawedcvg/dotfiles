@@ -71,14 +71,13 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 "nnoremap <silent> <leader>b :ToggleBlameLine<CR>
 "transparent
-nnoremap <silent> <C-f> :hi Normal guibg=NONE ctermbg=NONE<CR>
 "Abbreviations
 ab sout System.out.println
 ab main_func public static void main(String[] args)
 
 "Telescope
-
 nnoremap <leader>fj :Telescope jumplist<CR>
+nnoremap <silent>gr :Telescope lsp_references<CR>
 
 
 "git setup
@@ -90,7 +89,7 @@ nnoremap ]c ]czz
 nnoremap [c [czz
 
 "for selecting pasted text
-nnoremap gp `[v`]
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 "for jumplist modification
 "nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
@@ -108,14 +107,6 @@ nnoremap <silent> <leader>o :Vex<CR>
 nnoremap <silent> <leader>bd :BufferLineCloseLeft<CR>
 nnoremap <silent> <leader>bl :BufferLineCloseRight<CR>
 
-
-"set matchpairs+=\<:\>
-" With `Cursor guibg=fg guifg=bg` + default MatchParen styling, it makes the
-" cursor seem like it has actually jumped to the patching pair. This instead
-" makes the MatchParen style preserve the background color, so that the
-" Cursor can flip it appropriately.
-"hi! MatchParen cterm=NONE,bold gui=NONE,bold guibg=bg guifg=lightblue ctermbg=bg ctermfg=lightblue
-
 "for allowing the path thing
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 command WQ wq
@@ -131,20 +122,9 @@ autocmd FileType python map <buffer> <F9> :exec '!python3' shellescape(@%, 1)<CR
 "autocmd FileType text map <silent> j gj
 "autocmd Filetype python nnoremap <buffer> <leader>rp :!python3 %<CR>
 
-"to enable highlighting while jumping
-" blink_search.vim - Blink search pattern after n and N
-"function! s:BlinkCurrentMatch()
-    "let target = '\c\%#'.@/
-    "let match = matchadd('IncSearch', target)
-    "redraw
-    "sleep 90m
-    "call matchdelete(match)
-    "redraw
-"endfunction
-
 "stuff for lsp
 
-nnoremap <leader>a :Telescope diagnostics
+nnoremap <silent><nowait> <leader>a :Telescope diagnostics<cr>
 
 "for terminal
 if has('nvim')
@@ -157,5 +137,3 @@ if has('nvim')
     nnoremap <leader>t :sp<CR>:terminal<CR>:resize -10<CR>a
     autocmd TermOpen * setlocal nonumber norelativenumber
 endif
-
-"autocmd TermOpen * :

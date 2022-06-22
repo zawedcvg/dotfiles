@@ -55,25 +55,16 @@ set completeopt=menuone,noinsert,noselect
 
 
 map <F2> :call TrimWhiteSpace()<CR>
-"map! <F2> :call TrimWhiteSpace()<CR>
 
-"function TrimEndLines()
-    "let save_cursor = getpos(".")
-    "silent! %s#\($\n\s*\)\+\%$##
-    "call setpos('.', save_cursor)
-"endfunction
-
-"autocmd BufWritePre * call TrimEndLines()
 set list listchars=tab:»·,trail:·
 
 nmap Q <Nop>
 nnoremap H gt
 nnoremap L gT
 set noerrorbells visualbell t_vb=
-let g:onedark_style = 'warm'
 colorscheme onedark
 set termguicolors
-let g:rehash256 = 1
+"let g:rehash256 = 1
 
 function s:Cursor_Moved()
     let cur_pos = winline()
@@ -91,18 +82,18 @@ function s:Cursor_Moved()
     let g:last_pos = cur_pos
 endfunction
 autocmd CursorMoved,CursorMovedI * call s:Cursor_Moved()
+
 let g:last_pos = 0
 
 let g:highlightedyank_highlight_duration = 150
 
-" vim: fdm=marker:sw=2:sts=2:et
 let g:indentLine_fileTypeExclude = ['dashboard', "help"]
-nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
-nnoremap <leader>ff :lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fb :lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh :lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>fc :lua require('zawed_telescope').search_dotfiles()<CR>
-nnoremap <leader>fn :lua require('zawed_telescope').search_nvim()<CR>
+nnoremap <silent> <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
+nnoremap <silent> <leader>ff :lua require('telescope.builtin').find_files()<cr>
+nnoremap <silent> <leader>fb :lua require('telescope.builtin').buffers()<cr>
+nnoremap <silent> <leader>fh :lua require('telescope.builtin').help_tags()<cr>
+nnoremap <silent> <leader>fc :lua require('zawed_telescope').search_dotfiles()<CR>
+nnoremap <silent> <leader>fn :lua require('zawed_telescope').search_nvim()<CR>
 
 "vim latex
 let g:Tex_IgnoredWarnings =
@@ -124,6 +115,7 @@ autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.ven
 "autocmd FileType  txtlet b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
 "for vim-rooter
 let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh']
+autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()
 
 " in millisecond, used for both CursorHold and CursorHoldI,
 " use updatetime instead if not defined
@@ -148,9 +140,15 @@ require 'colorizer'.setup()
 ---- Any language not disabled here is enabled by default
 --separator = ' > ',
 --})
+require('onedark').setup {
+    style = 'cool'
+}
 require("which-key").setup()
-require('nvim-ts-autotag').setup()
+require("nvim-ts-autotag").setup()
+signature_cfg = {
+    hint_enable = false,
+}
+require "lsp_signature".setup(signature_cfg)
+require "fidget".setup()
 --require('rust-tools').setup({})
 --"require'treesitter-context.config'.setup{
---   "enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-EOF
