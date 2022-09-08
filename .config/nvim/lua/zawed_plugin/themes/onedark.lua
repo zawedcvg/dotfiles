@@ -1,4 +1,3 @@
- 
 local colors = {
     white = "#abb2bf",
     darker_black = "#1b1f27",
@@ -27,7 +26,7 @@ local colors = {
     orange = "#fca2aa",
     cyan = "#a3b8ef",
     statusline_bg = "#22262e",
-    lightbg = "#2d3139",
+    lightbg = "#282E2C",
     lightbg2 = "#262a32"
 }
 

@@ -1,0 +1,6 @@
+require("zawed_plugin.file-icons")
+require("zawed_plugin.gitsigns")
+require("zawed_plugin.status-line")
+--require("zawed_plugin.top-bufferline")
+require("zawed_plugin.telescope")
+require("zawed_plugin.illuminate")
