@@ -7,11 +7,6 @@ if not status_ok then
     return
 end
 
---local null_ls = require("nvim-navic")
---if not status_ok then
---return
---end
-
 local on_attach = function(client, bufnr)
     require("zawed_lsp.handlers").on_attach(client, bufnr)
     navic.attach(client, bufnr)
@@ -33,7 +28,7 @@ null_ls.setup({
 
 local lspconfig = require("lspconfig")
 
-local servers = { "jsonls", "sumneko_lua", "pyright", "tsserver" }
+local servers = { "jsonls", "pyright", "tsserver"}
 
 mason.setup {
     ui = {
@@ -83,3 +78,39 @@ require("rust-tools").setup {
 require("clangd_extensions").setup {
     server = { on_attach = on_attach },
 }
+
+--require("ccls").setup {
+    --lsp = {
+        ---- check :help vim.lsp.start for config options
+        --server = {
+            --name = "ccls", --String name
+            --cmd = {"/usr/bin/ccls"}, -- point to your binary, has to be a table
+            --args = {[>Any args table<] },
+            --offset_encoding = "utf-32", -- default value set by plugin
+            --root_dir = vim.fs.dirname(vim.fs.find({ "compile_commands.json", ".git" }, { upward = true })[1]), -- or some other function that returns a string
+            ----on_attach = your_func,
+            ----capabilites = your_table/func
+        --},
+    --},
+--}
+--
+
+--require("clangd_extensions").setup()
+
+lspconfig["sumneko_lua"].setup({
+    capabilities = require("zawed_lsp.handlers").capabilities,
+    on_attach = on_attach,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = {"vim"},
+            },
+            workspace = {
+                library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.stdpath("config") .. "/lua"] = true
+                },
+            },
+        },
+    },
+})

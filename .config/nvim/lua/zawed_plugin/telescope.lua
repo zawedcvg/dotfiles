@@ -45,7 +45,5 @@ M.search_nvim = function()
         hidden = true,
     })
 end
---require('telescope').load_extension('coc')
 require('telescope').load_extension('fzf')
---require('telescope').load_extension('projects')
 return M

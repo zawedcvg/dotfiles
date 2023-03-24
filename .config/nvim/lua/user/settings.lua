@@ -7,6 +7,9 @@ local set = vim.o
 
 
 vim.opt.listchars = { tab = '▸ ', trail = '·' }
+vim.opt.fillchars = {
+  diff = "╱", -- alternatives = ⣿ ░ ─ ╱
+}
 vim.opt.conceallevel = 2
 set.list = true
 

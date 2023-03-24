@@ -15,7 +15,7 @@ M.setup = function()
 
     local config = {
         -- disable virtual text
-        virtual_text = true,
+        virtual_text = {only_current_line=true},
         -- show signs
         signs = {
             active = signs,
@@ -45,7 +45,7 @@ M.setup = function()
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
+        virtual_text = {only_current_line=true},
         underline = true,
         update_in_insert = false,
         signs = true,
@@ -198,6 +198,6 @@ if not status_ok then
     return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 return M

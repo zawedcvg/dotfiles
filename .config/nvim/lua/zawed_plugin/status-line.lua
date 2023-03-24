@@ -121,13 +121,13 @@ gls.left[8] = {
     }
 }
 
-gls.left[9] = {
-    DiagnosticError = {
-        provider = "DiagnosticError",
-        icon = "  ",
-        highlight = { colors.red, colors.statusline_bg }
-    }
-}
+--gls.left[9] = {
+    --DiagnosticError = {
+        --provider = "DiagnosticError",
+        --icon = "  ",
+        --highlight = { colors.red, colors.statusline_bg }
+    --}
+--}
 gls.left[10] = {
     Space = {
         provider = function() return ' ' end,
@@ -136,13 +136,13 @@ gls.left[10] = {
 }
 
 
-gls.left[11] = {
-    DiagnosticWarn = {
-        provider = "DiagnosticWarn",
-        icon = "  ",
-        highlight = { colors.green, colors.statusline_bg }
-    }
-}
+--gls.left[11] = {
+    --DiagnosticWarn = {
+        --provider = "DiagnosticWarn",
+        --icon = "  ",
+        --highlight = { colors.green, colors.statusline_bg }
+    --}
+--}
 
 gls.right[1] = {
     nvimNavic = {
@@ -179,7 +179,7 @@ gls.right[4] = {
     GitBranch = {
         provider = "GitBranch",
         condition = require("galaxyline.provider_vcs").check_git_workspace,
-        highlight = { colors.white, colors.lightbg }
+        highlight = { colors.white, colors.statusline_bg }
     }
 }
 
@@ -246,3 +246,28 @@ gls.right[8] = {
         highlight = { colors.green, colors.lightbg }
     }
 }
+--local function status_line()
+    ----local mode = "%-5{%v:lua.string.upper(v:lua.vim.fn.mode())%}"
+    --local buf_nr = "%n "
+    --local file_type = "%y"
+    --local right_align = "%="
+    --local symbol = ""
+
+    ----if navic.is_available() then
+        ----symbol = navic.get_location()
+    ----end
+
+    ----vim.schedule(function()
+      ----symbol = navic.get_location()
+    ----end)
+
+    --return string.format(
+        --"%s%s%s",
+        --right_align,
+        --buf_nr,
+        --file_type
+    --)
+--end
+
+-- vim.opt.statusline = status_line()
+--vim.opt.winbar = status_line()

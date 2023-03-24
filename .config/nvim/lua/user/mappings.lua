@@ -13,7 +13,7 @@ Nnoremap = CreateRemap("n", { noremap = true })
 Xnoremap = CreateRemap("x", { noremap = true })
 Vmap = CreateRemap("v", {})
 Nmap = CreateRemap("n", {})
-Cmap = CreateRemap("c", {})
+Cmap = CreateRemap("c", {noremap=true})
 Tnoremap = CreateRemap("t", { noremap = true })
 
 --making additional mapping
@@ -46,11 +46,14 @@ vim.api.nvim_set_keymap("n", "S", "s$", {})
 --for markdown preview
 vim.api.nvim_set_keymap("n", "<C-p>", "<Plug>(MarkdownPreviewToggle)", {})
 
+Xnoremap("<leader>p", "\"_dP")
+
 --Shortcutting navigation in split view"
 Nnoremap("<C-h>", "<C-w>h")
 Nnoremap("<C-j>", "<C-w>j")
 Nnoremap("<C-l>", "<C-w>l")
 Nnoremap("<C-k>", "<C-w>k")
+Nnoremap("<C-p>", "<C-w>p")
 
 --set the scrolling to be centered
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
@@ -94,15 +97,17 @@ vim.api.nvim_set_keymap("n", "<leader>a", "<cmd>TroubleToggle<CR>",
 --vim.api.nvim_set_keymap("n", "<leader>bl", "<cmd>BufferLineCloseRight<CR>", { noremap = true, silent = true })
 
 --handling mistypes
-Cmap("WQ", "wq")
-Cmap("Wq", "wq")
-Cmap("W", "w")
-Cmap("Q", "q")
-Cmap("Qa", "qa")
+--Cmap("WQ", "wq")
+--Cmap("Wq", "wq")
+----Cmap("W", "w")
+--Cmap("Q", "q")
+--Cmap("Qa", "qa")
+
+--Nnoremap(":W<CR>", ":w<CR>")
 
 vim.api.nvim_set_keymap("n", "<leader>fj", "<cmd>Telescope jumplist<CR>",
     { noremap = true, silent = true, nowait = true })
-vim.api.nvim_set_keymap("n", "<leader>gr", "<cmd>Telescope lsp_references<CR>",
+vim.api.nvim_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>",
     { noremap = true, silent = true, nowait = true })
 
 --terminal things
@@ -113,3 +118,9 @@ Tnoremap("<C-j>", "<C-\\><C-n><C-w>j")
 Tnoremap("<C-k>", "<C-\\><C-n><C-w>k")
 Tnoremap("<C-l>", "<C-\\><C-n><C-w>l")
 vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>sp<CR>:terminal<CR>:resize -10<CR>a", {noremap = true, silent = true})
+--vim.keymap.set(
+  --"",
+  --"<Leader>l",
+  --require("lsp_lines").toggle,
+  --{ desc = "Toggle lsp_lines" }
+--)

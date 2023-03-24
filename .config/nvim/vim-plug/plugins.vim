@@ -3,23 +3,20 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 call plug#begin('~/.config/nvim/autoload/plugged')
+Plug 'ranjithshegde/ccls.nvim'
 Plug 'nathom/filetype.nvim'
-"Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
-"Plug 'folke/lsp-colors.nvim'
 Plug 'dstein64/vim-startuptime'
 Plug 'mattn/emmet-vim', {'for': 'html'}
 Plug 'tpope/vim-surround'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
-Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'master'}
 Plug 'tpope/vim-repeat'
-"Plug 'ahmedkhalf/project.nvim'
 Plug 'tpope/vim-fugitive'
-Plug 'lewis6991/gitsigns.nvim'
+Plug 'lewis6991/gitsigns.nvim', {'on': 'Gitsigns toggle_signs'}
 Plug 'navarasu/onedark.nvim'
 Plug 'svermeulen/vim-subversive'
 Plug 'svermeulen/vim-cutlass'
@@ -34,11 +31,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'qxxxb/vim-searchhi'
-Plug 'norcalli/nvim-colorizer.lua', 
-"'for': ['html', 'css']}
 Plug 'lervag/vimtex', {'for': ['markdown']}
 
-Plug 'habamax/vim-godot'
+"Plug 'Lomix/godot.nvim'
 "For completion
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -55,24 +50,24 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'j-hui/fidget.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
-"Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 
 "colorscheme
 Plug 'sainnhe/everforest'
 
 "better UI for lsp
 "Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
-Plug 'kosayoda/nvim-lightbulb'
+
+"Plug 'kosayoda/nvim-lightbulb'
 
 "for rust
 Plug 'simrat39/rust-tools.nvim'
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 "for function name
 Plug 'SmiteshP/nvim-navic'
 "illuminate
 Plug 'RRethy/vim-illuminate'
 Plug 'goerz/jupytext.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 
 Plug 'phaazon/mind.nvim'
 
@@ -80,4 +75,11 @@ Plug 'alvarosevilla95/luatab.nvim'
 Plug 'tyru/open-browser.vim'
 
 Plug 'p00f/clangd_extensions.nvim'
+Plug 'lewis6991/impatient.nvim'
+Plug 'sindrets/diffview.nvim'
+Plug 'chipsenkbeil/distant.nvim'
+
+Plug 'b0o/incline.nvim'
+Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
+Plug 'dnlhc/glance.nvim'
 call plug#end()
