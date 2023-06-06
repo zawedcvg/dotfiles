@@ -117,6 +117,7 @@ Tnoremap("<C-h>", "<C-\\><C-n><C-w>h")
 Tnoremap("<C-j>", "<C-\\><C-n><C-w>j")
 Tnoremap("<C-k>", "<C-\\><C-n><C-w>k")
 Tnoremap("<C-l>", "<C-\\><C-n><C-w>l")
+--Tnoremap("<C-w>", "<C-\\><C-n><C-w>w")
 vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>sp<CR>:terminal<CR>:resize -10<CR>a", {noremap = true, silent = true})
 --vim.keymap.set(
   --"",

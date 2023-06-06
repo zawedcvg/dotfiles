@@ -82,4 +82,5 @@ Plug 'chipsenkbeil/distant.nvim'
 Plug 'b0o/incline.nvim'
 Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 Plug 'dnlhc/glance.nvim'
+Plug 'rebelot/kanagawa.nvim'
 call plug#end()

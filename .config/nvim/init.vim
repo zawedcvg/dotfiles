@@ -220,14 +220,27 @@ require('neorg').setup {
     load = {
         ["core.defaults"] = {}, -- Loads default behaviour
         ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+        ["core.export"] = {}, -- exporting?
+        ["core.export.markdown"] = {
+            config = {
+                extensions = "all",
+                },
+        },
         ["core.norg.dirman"] = { -- Manages Neorg workspaces
             config = {
                 workspaces = {
                     notes = "~/notes",
                     todo = "~/todo",
+                    finals = "~/finals_prep",
+                    projects = "~/projects",
                 },
             },
         },
+        ["core.keybinds"] = {
+            config = {
+                neorg_leader = "<Leader>",
+            }
+        }
     },
 }
 
