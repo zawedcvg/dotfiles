@@ -11,12 +11,12 @@ require "nvim-web-devicons".setup {
             name = "css"
         },
         js = {
-            icon = "",
+            icon = "󰌞",
             color = "#f7e01d",
             name = "js"
         },
         ts = {
-            icon = "ﯤ",
+            icon = "󰛦",
             color = "#008080",
             name = "ts"
         },
@@ -26,22 +26,22 @@ require "nvim-web-devicons".setup {
             name = "kt"
         },
         png = {
-            icon = "",
+            icon = "󰉏",
             color = "#301934",
             name = "png"
         },
         jpg = {
-            icon = "",
+            icon = "󰉏",
             color = "#301934",
             name = "jpg"
         },
         jpeg = {
-            icon = "",
+            icon = "󰉏",
             color = "#301934",
             name = "jpeg"
         },
         mp3 = {
-            icon = "",
+            icon = "󰎆",
             color = "#FFFFFF",
             name = "mp3"
         },
@@ -66,7 +66,7 @@ require "nvim-web-devicons".setup {
             name = "rb"
         },
         vue = {
-            icon = "﵂",
+            icon = "󰡄",
             color = "#58CD36",
             name = "vue"
         },
@@ -81,7 +81,7 @@ require "nvim-web-devicons".setup {
             name = "toml"
         },
         lock = {
-            icon = "",
+            icon = "󰌾",
             color = "#FF0000",
             name = "lock"
         },

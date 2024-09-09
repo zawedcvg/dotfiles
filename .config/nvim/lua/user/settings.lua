@@ -13,7 +13,7 @@ vim.opt.fillchars = {
 vim.opt.conceallevel = 2
 set.list = true
 
-set.lazyredraw = true --for macros
+--set.lazyredraw = true --for macros
 --set.noshowmode = true --for preventing the show of modes
 set.number = true
 set.hlsearch = true

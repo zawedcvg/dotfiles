@@ -84,7 +84,7 @@ Vmap("<C-Down>", "]egv")
 --git setup
 vim.api.nvim_set_keymap("n", "<leader>gs", ":Git<CR><C-w>x", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gc", ":Git commit<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>gd", ":diffget //2", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gk", ":diffget //2", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gd", ":diffget //3", { noremap = true, silent = true })
 Nnoremap("]c", "]czz")
 Nnoremap("[c", "[czz")

@@ -78,7 +78,7 @@ gls.left[5] = {
     current_dir = {
         provider = function()
             local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-            return "  " .. dir_name .. " "
+            return " 󰉖 " .. dir_name .. " "
         end,
         highlight = { colors.white, colors.lightbg },
         separator = " ",
@@ -166,7 +166,7 @@ gls.right[2] = {
 gls.right[3] = {
     GitIcon = {
         provider = function()
-            return " "
+            return "󰊢 "
         end,
         condition = require("galaxyline.provider_vcs").check_git_workspace,
         highlight = { colors.white, colors.lightbg },

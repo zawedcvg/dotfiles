@@ -51,6 +51,23 @@ for _, server in pairs(servers) do
     lspconfig[server].setup(opts)
 end
 
+lspconfig.gopls.setup {
+  on_attach = on_attach,
+capabilities = require("zawed_lsp.handlers").capabilities,
+  cmd = {"gopls"},
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      },
+    },
+  },
+}
+
+
 -- rust-tools config: https://github.com/simrat39/rust-tools.nvim
 -- @TODOUA: selects on *abbles require manual close with no select
 -- ... not handling nil in select telescope or otherwise
@@ -67,7 +84,7 @@ require("rust-tools").setup {
         --hover_with_actions = true,
         inlay_hints = {
             -- prefix for parameter hints
-            parameter_hints_prefix = " ",
+            parameter_hints_prefix = "󰅲 ",
 
             -- prefix for all the other hints (type, chaining)
             other_hints_prefix = " ",

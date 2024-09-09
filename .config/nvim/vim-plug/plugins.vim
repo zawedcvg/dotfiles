@@ -3,10 +3,12 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 call plug#begin('~/.config/nvim/autoload/plugged')
-Plug 'ranjithshegde/ccls.nvim'
+Plug 'amitds1997/remote-nvim.nvim',
+Plug 'MunifTanjim/nui.nvim'
+Plug 'rcarriga/nvim-notify'
+Plug 'folke/noice.nvim'
 Plug 'nathom/filetype.nvim'
 Plug 'dstein64/vim-startuptime'
-Plug 'mattn/emmet-vim', {'for': 'html'}
 Plug 'tpope/vim-surround'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'raimondi/delimitmate'
@@ -20,10 +22,8 @@ Plug 'lewis6991/gitsigns.nvim', {'on': 'Gitsigns toggle_signs'}
 Plug 'navarasu/onedark.nvim'
 Plug 'svermeulen/vim-subversive'
 Plug 'svermeulen/vim-cutlass'
-"Plug 'tpope/vim-unimpaired'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'kyazdani42/nvim-web-devicons'
-"Plug 'akinsho/nvim-bufferline.lua'
 Plug 'folke/which-key.nvim'
 Plug 'windwp/nvim-ts-autotag'
 Plug 'nvim-lua/popup.nvim'
@@ -32,8 +32,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'qxxxb/vim-searchhi'
 Plug 'lervag/vimtex', {'for': ['markdown']}
+Plug 'simrat39/symbols-outline.nvim'
 
-"Plug 'Lomix/godot.nvim'
 "For completion
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -59,28 +59,27 @@ Plug 'sainnhe/everforest'
 
 "Plug 'kosayoda/nvim-lightbulb'
 
-"for rust
-Plug 'simrat39/rust-tools.nvim'
+Plug 'simrat39/rust-tools.nvim' "for rust
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
-"for function name
-Plug 'SmiteshP/nvim-navic'
+
+Plug 'SmiteshP/nvim-navic' "for function name
 "illuminate
 Plug 'RRethy/vim-illuminate'
 Plug 'goerz/jupytext.vim'
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 
-Plug 'phaazon/mind.nvim'
 
 Plug 'alvarosevilla95/luatab.nvim'
 Plug 'tyru/open-browser.vim'
 
 Plug 'p00f/clangd_extensions.nvim'
 Plug 'lewis6991/impatient.nvim'
+Plug 'folke/todo-comments.nvim'
 Plug 'sindrets/diffview.nvim'
 Plug 'chipsenkbeil/distant.nvim'
-
+Plug 'MeanderingProgrammer/markdown.nvim',
 Plug 'b0o/incline.nvim'
-Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-neorg/neorg', {'tag': 'v7.0.0'}
 Plug 'dnlhc/glance.nvim'
 Plug 'rebelot/kanagawa.nvim'
 call plug#end()

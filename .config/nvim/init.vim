@@ -60,6 +60,7 @@ set completeopt=menuone,noinsert,noselect
 nnoremap <F2> :call TrimWhiteSpace()<CR>
 
 set termguicolors
+set signcolumn=yes
 
 "highlight on cursor hold setting
 let g:Illuminate_delay = 200
@@ -129,9 +130,12 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 
 lua << EOF
+require("symbols-outline").setup()
+require('render-markdown').setup()
+require('render-markdown').enable()
 --require('colorful-winsep').setup({})
 require'nvim-treesitter.configs'.setup {
-    --ensure_installed = {"norg"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    ensure_installed = {"norg"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     highlight = {
     enable = true,              -- false will disable the whole extension
     },
@@ -150,6 +154,8 @@ require("nvim-ts-autotag").setup()
 signature_cfg = {
     hint_enable = false,
 }
+
+require("todo-comments").setup()
 require("lsp_signature").setup(signature_cfg)
 require("fidget").setup()
 require("trouble").setup {
@@ -163,7 +169,7 @@ local function get_diagnostic_label(props)
     Error = '',
     Warn = '',
     Info = '',
-    Hint = '',
+    Hint = '',
   }
 
   local label = {}
@@ -176,30 +182,30 @@ local function get_diagnostic_label(props)
   return label
 end
 
-require("incline").setup({
-  debounce_threshold = { falling = 500, rising = 250 },
-  render = function(props)
-    local bufname = vim.api.nvim_buf_get_name(props.buf)
-    local filename = vim.fn.fnamemodify(bufname, ":t")
-    local diagnostics = get_diagnostic_label(props)
-    local modified = vim.api.nvim_buf_get_option(props.buf, "modified") and "bold,italic" or "None"
-    local filetype_icon, color = require("nvim-web-devicons").get_icon_color(filename)
-
-    local buffer = {
-        { filetype_icon, guifg = color },
-        { " " },
-        { filename, gui = modified },
-    }
-
-    if #diagnostics > 0 then
-        table.insert(diagnostics, { "| ", guifg = "grey" })
-    end
-    for _, buffer_ in ipairs(buffer) do
-        table.insert(diagnostics, buffer_)
-    end
-    return diagnostics
-  end,
-})
+--require("incline").setup({
+  --debounce_threshold = { falling = 500, rising = 250 },
+  --render = function(props)
+    --local bufname = vim.api.nvim_buf_get_name(props.buf)
+    --local filename = vim.fn.fnamemodify(bufname, ":t")
+    --local diagnostics = get_diagnostic_label(props)
+    --local modified = vim.api.nvim_buf_get_option(props.buf, "modified") and "bold,italic" or "None"
+    --local filetype_icon, color = require("nvim-web-devicons").get_icon_color(filename)
+--
+    --local buffer = {
+        --{ filetype_icon, guifg = color },
+        --{ " " },
+        --{ filename, gui = modified },
+    --}
+--
+    --if #diagnostics > 0 then
+        --table.insert(diagnostics, { "| ", guifg = "grey" })
+    --end
+    --for _, buffer_ in ipairs(buffer) do
+        --table.insert(diagnostics, buffer_)
+    --end
+    --return diagnostics
+  --end,
+--})
 local function get_git_diff()
   local icons = { removed = "", changed = "",added = "" }
   local labels = {}
@@ -219,26 +225,29 @@ end
 require('neorg').setup {
     load = {
         ["core.defaults"] = {}, -- Loads default behaviour
-        ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+        ["core.concealer"] = {}, -- Adds pretty icons to your documents
         ["core.export"] = {}, -- exporting?
         ["core.export.markdown"] = {
             config = {
                 extensions = "all",
                 },
         },
-        ["core.norg.dirman"] = { -- Manages Neorg workspaces
+        ["core.dirman"] = { -- Manages Neorg workspaces
             config = {
                 workspaces = {
                     notes = "~/notes",
                     todo = "~/todo",
                     finals = "~/finals_prep",
                     projects = "~/projects",
+                    fyp = "~/projects/fyp",
+                    lecture_notes = "~/lecture_notes",
+                    papers = "~/lecture_notes",
                 },
             },
         },
         ["core.keybinds"] = {
             config = {
-                neorg_leader = "<Leader>",
+                neorg_leader = "/",
             }
         }
     },
@@ -298,8 +307,8 @@ glance.setup({
   },
   hooks = {},
   folds = {
-    fold_closed = '',
-    fold_open = '',
+    fold_closed = '',
+    fold_open = '',
     folded = true, -- Automatically fold list on startup
   },
   indent_lines = {
@@ -310,3 +319,32 @@ glance.setup({
     enable = true, -- Available strating from nvim-0.8+
   },
 })
+
+require("noice").setup({
+  lsp = {
+    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+    override = {
+      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+      ["vim.lsp.util.stylize_markdown"] = true,
+      ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+    },
+    signature = {
+        enabled = false
+        }
+  },
+  cmdline = {
+      enabled=true,
+      view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+  },
+  -- you can enable a preset for easier configuration
+  presets = {
+    bottom_search = true, -- use a classic bottom cmdline for search
+    --command_palette = true, -- position the cmdline and popupmenu together
+    long_message_to_split = true, -- long messages will be sent to a split
+    inc_rename = false, -- enables an input dialog for inc-rename.nvim
+    lsp_doc_border = true, -- add a border to hover docs and signature help
+  },
+})
+
+
+require("remote-nvim").setup()
