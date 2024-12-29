@@ -1,0 +1,712 @@
+3.09944152832031e-06: XSMP opening connectionVim: Warning: Output is not to a terminal
+2.00688099861145: 
+2.00689101219177: chdir(/usr/share/vim)[?25l[J
+2.00733304023743: fchdir() to previous dir[J
+2.00889801979065: sourcing "$VIM/vimrc"[J
+2.00890016555786: chdir(/usr/share/vim/vim82)[J
+2.00890612602234: fchdir() to previous dir[J
+2.00977802276611: line 8: sourcing "/usr/share/vim/vim82/debian.vim"[J
+2.00978016853333: finished sourcing /usr/share/vim/vim82/debian.vim[J
+2.00985097885132: continuing in /usr/share/vim/vimrc[J
+2.01074910163879: chdir(/usr/share/vim/vim82/syntax)[J
+2.01159906387329: fchdir() to previous dir[J
+2.0122389793396: line 25: sourcing "/usr/share/vim/vim82/syntax/syntax.vim"[J
+2.01224207878113: chdir(/usr/share/vim/vim82/syntax)[J
+2.01224207878113: fchdir() to previous dir[J
+2.0126621723175: line 19: sourcing "/usr/share/vim/vim82/syntax/synload.vim"[J
+2.01266312599182: chdir(/usr/share/vim/vim82/syntax)[J
+2.01266407966614: fchdir() to previous dir[J
+2.01493310928345: line 21: sourcing "/usr/share/vim/vim82/syntax/syncolor.vim"[J
+2.01493501663208: finished sourcing /usr/share/vim/vim82/syntax/syncolor.vim[J
+2.01503801345825: continuing in /usr/share/vim/vim82/syntax/synload.vim[J
+2.01503896713257: finished sourcing /usr/share/vim/vim82/syntax/synload.vim[J
+2.0151059627533: continuing in /usr/share/vim/vim82/syntax/syntax.vim[J
+2.01510810852051: chdir(/usr/share/vim/vim82)[J
+2.01510906219482: fchdir() to previous dir[J
+2.01939415931702: line 25: sourcing "/usr/share/vim/vim82/filetype.vim"[J
+2.01947116851807: not found in 'runtimepath': "ftdetect/*.vim"[J
+2.01947402954102: finished sourcing /usr/share/vim/vim82/filetype.vim[J
+2.01955509185791: continuing in /usr/share/vim/vim82/syntax/syntax.vim[J
+2.01955699920654: Executing FileType Autocommands for "*"[J
+2.01955795288086: autocommand exe "set syntax=" . expand("<amatch>")[J
+2.01956009864807: 
+2.01956105232239: Executing Syntax Autocommands for "*"[J
+2.01956295967102: autocommand call s:SynSet()[J
+2.0197069644928: 
+2.01970911026001: Executing BufRead Autocommands for "*"[J
+2.01971006393433: autocommand if !did_filetype() && expand("<amatch>") !~ g:ft_ignore_pat | runtime! scripts.vim | endif[J
+2.01977014541626: 
+2.01977109909058: chdir(/usr/share/vim/vim82)[J
+2.01981902122498: fchdir() to previous dir[J
+2.02035307884216: line 0: sourcing "/usr/share/vim/vim82/scripts.vim"[J
+2.02035593986511: finished sourcing /usr/share/vim/vim82/scripts.vim[J
+2.02038598060608: continuing in BufRead Autocommands for "*"[J
+2.02039098739624: Executing BufRead Autocommands for "*"[J
+2.02039694786072: autocommand if !did_filetype() && expand("<amatch>") !~ g:ft_ignore_pat    && (getline(1) =~ '^#' || getline(2) =~ '^#' || getline(3) =~ '^#'^I|| getline(4) =~ '^#' || getline(5) =~ '^#') |   setf FALLBACK conf | endif[J
+2.02041602134705: 
+2.02041816711426: finished sourcing /usr/share/vim/vim82/syntax/syntax.vim[J
+2.02044200897217: continuing in /usr/share/vim/vimrc[J
+2.02045106887817: finished sourcing $VIM/vimrc[J
+2.02045607566833: chdir(/home/neeladri)[J
+2.02046704292297: fchdir() to previous dir[J
+2.02084302902222: sourcing "$HOME/.vimrc"[J
+2.02084898948669: chdir(/usr/share/vim/vim82)[J
+2.02085995674133: fchdir() to previous dir[J
+2.02119708061218: line 3: sourcing "/usr/share/vim/vim82/ftoff.vim"[J
+2.02119898796082: finished sourcing /usr/share/vim/vim82/ftoff.vim[J
+2.021409034729: continuing in /home/neeladri/.vimrc[J
+2.02140998840332: chdir(/usr/share/vim/vim82/syntax)[J
+2.0214581489563: fchdir() to previous dir[J
+2.02150511741638: line 4: sourcing "/usr/share/vim/vim82/syntax/syntax.vim"[J
+2.0215060710907: chdir(/usr/share/vim/vim82/syntax)[J
+2.02165412902832: fchdir() to previous dir[J
+2.02183794975281: line 15: sourcing "/usr/share/vim/vim82/syntax/nosyntax.vim"[J
+2.02184009552002: Executing BufEnter Autocommands for "*"[J
+2.02184104919434: autocommand syn clear[J
+2.02184200286865: 
+2.02184700965881: autocommand if exists("b:current_syntax") | unlet b:current_syntax | endif[J
+2.0218939781189: 
+2.02189517021179: finished sourcing /usr/share/vim/vim82/syntax/nosyntax.vim[J
+2.02191805839539: continuing in /usr/share/vim/vim82/syntax/syntax.vim[J
+2.02192306518555: chdir(/usr/share/vim/vim82/syntax)[J
+2.02193403244019: fchdir() to previous dir[J
+2.02197098731995: line 19: sourcing "/usr/share/vim/vim82/syntax/synload.vim"[J
+2.02197694778442: chdir(/usr/share/vim/vim82/syntax)[J
+2.02198696136475: fchdir() to previous dir[J
+2.02209901809692: line 21: sourcing "/usr/share/vim/vim82/syntax/syncolor.vim"[J
+2.02210307121277: finished sourcing /usr/share/vim/vim82/syntax/syncolor.vim[J
+2.02217817306519: continuing in /usr/share/vim/vim82/syntax/synload.vim[J
+2.02218294143677: finished sourcing /usr/share/vim/vim82/syntax/synload.vim[J
+2.02222895622253: continuing in /usr/share/vim/vim82/syntax/syntax.vim[J
+2.0222339630127: chdir(/usr/share/vim/vim82)[J
+2.02224516868591: fchdir() to previous dir[J
+2.02569508552551: line 25: sourcing "/usr/share/vim/vim82/filetype.vim"[J
+2.02576398849487: not found in 'runtimepath': "ftdetect/*.vim"[J
+2.02576494216919: finished sourcing /usr/share/vim/vim82/filetype.vim[J
+2.02582097053528: continuing in /usr/share/vim/vim82/syntax/syntax.vim[J
+2.02582311630249: Executing FileType Autocommands for "*"[J
+2.02582406997681: autocommand exe "set syntax=" . expand("<amatch>")[J
+2.0258321762085: 
+2.02583408355713: Executing Syntax Autocommands for "*"[J
+2.02583694458008: autocommand call s:SynSet()[J
+2.02591300010681: 
+2.02592396736145: Executing BufRead Autocommands for "*"[J
+2.02592611312866: autocommand if !did_filetype() && expand("<amatch>") !~ g:ft_ignore_pat | runtime! scripts.vim | endif[J
+2.02597904205322: 
+2.02598094940186: chdir(/usr/share/vim/vim82)[J
+2.02603006362915: fchdir() to previous dir[J
+2.02636408805847: line 0: sourcing "/usr/share/vim/vim82/scripts.vim"[J
+2.02636909484863: finished sourcing /usr/share/vim/vim82/scripts.vim[J
+2.02639508247375: continuing in BufRead Autocommands for "*"[J
+2.0263991355896: Executing BufRead Autocommands for "*"[J
+2.02640700340271: autocommand if !did_filetype() && expand("<amatch>") !~ g:ft_ignore_pat    && (getline(1) =~ '^#' || getline(2) =~ '^#' || getline(3) =~ '^#'^I|| getline(4) =~ '^#' || getline(5) =~ '^#') |   setf FALLBACK conf | endif[J
+2.02642512321472: 
+2.02642917633057: finished sourcing /usr/share/vim/vim82/syntax/syntax.vim[J
+2.02663993835449: continuing in /home/neeladri/.vimrc[J
+2.02664613723755: chdir(/home/neeladri/.vim/colors)[J
+2.0266580581665: fchdir() to previous dir[J
+2.02710103988647: line 28: sourcing "/home/neeladri/.vim/colors/molokai.vim"[J
+2.02710199356079: chdir(/usr/share/vim/vim82/syntax)[J
+2.02715110778809: fchdir() to previous dir[J
+2.02728009223938: line 11: sourcing "/usr/share/vim/vim82/syntax/syncolor.vim"[J
+2.0272810459137: finished sourcing /usr/share/vim/vim82/syntax/syncolor.vim[J
+2.02745008468628: continuing in /home/neeladri/.vim/colors/molokai.vim[J
+2.0274510383606: chdir(/usr/share/vim/vim82/syntax)[J
+2.02749800682068: fchdir() to previous dir[J
+2.02762413024902: line 16: sourcing "/usr/share/vim/vim82/syntax/syncolor.vim"[J
+2.02762508392334: finished sourcing /usr/share/vim/vim82/syntax/syncolor.vim[J
+2.02772212028503: continuing in /home/neeladri/.vim/colors/molokai.vim[J
+2.02772307395935: chdir(/usr/share/vim/vim82/syntax)[J
+2.02773213386536: fchdir() to previous dir[J
+2.02786803245544: line 18: sourcing "/usr/share/vim/vim82/syntax/syncolor.vim"[J
+2.02786898612976: finished sourcing /usr/share/vim/vim82/syntax/syncolor.vim[J
+2.02823615074158: continuing in /home/neeladri/.vim/colors/molokai.vim[J
+2.02823710441589: finished sourcing /home/neeladri/.vim/colors/molokai.vim[J
+2.03033304214478: continuing in /home/neeladri/.vimrc[J
+2.03033399581909: chdir(/home/neeladri/.vim/bundle/Vundle.vim/autoload)[J
+2.03038215637207: fchdir() to previous dir[J
+2.03081202507019: line 35: sourcing "/home/neeladri/.vim/bundle/Vundle.vim/autoload/vundle.vim"[J
+2.03081893920898: finished sourcing /home/neeladri/.vim/bundle/Vundle.vim/autoload/vundle.vim[J
+2.03114914894104: continuing in /home/neeladri/.vimrc[J
+2.03115010261536: chdir(/home/neeladri/.vim/bundle/Vundle.vim/autoload/vundle)[J
+2.03119802474976: fchdir() to previous dir[J
+2.03160095214844: line 4: sourcing "/home/neeladri/.vim/bundle/Vundle.vim/autoload/vundle/config.vim"[J
+2.03160214424133: finished sourcing /home/neeladri/.vim/bundle/Vundle.vim/autoload/vundle/config.vim[J
+2.03728199005127: continuing in vundle#rc[J
+2.03728413581848: chdir(/usr/share/vim/vim82)[J
+2.03729796409607: fchdir() to previous dir[J
+2.03735208511353: line 56: sourcing "/usr/share/vim/vim82/filetype.vim"[J
+2.03735303878784: finished sourcing /usr/share/vim/vim82/filetype.vim[J
+2.03767395019531: continuing in /home/neeladri/.vimrc[J
+2.03768014907837: chdir(/usr/share/vim/vim82)[J
+2.03773307800293: fchdir() to previous dir[J
+2.03805804252625: line 56: sourcing "/usr/share/vim/vim82/ftplugin.vim"[J
+2.03805804252625: finished sourcing /usr/share/vim/vim82/ftplugin.vim[J
+2.03825211524963: continuing in /home/neeladri/.vimrc[J
+2.03825306892395: chdir(/usr/share/vim/vim82)[J
+2.03825497627258: fchdir() to previous dir[J
+2.0384349822998: line 56: sourcing "/usr/share/vim/vim82/indent.vim"[J
+2.03843712806702: finished sourcing /usr/share/vim/vim82/indent.vim[J
+2.0385799407959: continuing in /home/neeladri/.vimrc[J
+2.03858494758606: chdir(/usr/share/vim/vim82)[J
+2.03859496116638: fchdir() to previous dir[J
+2.03860807418823: line 57: sourcing "/usr/share/vim/vim82/filetype.vim"[J
+2.03860998153687: finished sourcing /usr/share/vim/vim82/filetype.vim[J
+2.03877902030945: continuing in /home/neeladri/.vimrc[J
+2.03878116607666: chdir(/usr/share/vim/vim82)[J
+2.03878712654114: fchdir() to previous dir[J
+2.03879809379578: line 57: sourcing "/usr/share/vim/vim82/ftplugin.vim"[J
+2.03880000114441: finished sourcing /usr/share/vim/vim82/ftplugin.vim[J
+2.03936815261841: continuing in /home/neeladri/.vimrc[J
+2.03980612754822: finished sourcing $HOME/.vimrc[J
+2.04022908210754: not found in 'packpath': "pack/*/start/*"[J
+2.04023098945618: chdir(/home/neeladri/.vim/bundle/coc.nvim/plugin)[J
+2.04027795791626: fchdir() to previous dir[J
+2.04112696647644: sourcing "/home/neeladri/.vim/bundle/coc.nvim/plugin/coc.vim"[J
+2.04112815856934: chdir(/home/neeladri/.vim/bundle/coc.nvim/autoload/coc)[J
+2.04113006591797: fchdir() to previous dir[J
+2.04145002365112: line 49: sourcing "/home/neeladri/.vim/bundle/coc.nvim/autoload/coc/rpc.vim"[J
+2.04145097732544: finished sourcing /home/neeladri/.vim/bundle/coc.nvim/autoload/coc/rpc.vim[J
+2.04152011871338: continuing in /home/neeladri/.vim/bundle/coc.nvim/plugin/coc.vim[J
+2.04152202606201: chdir(/home/neeladri/.vim/bundle/coc.nvim/autoload/coc)[J
+2.04157614707947: fchdir() to previous dir[J
+2.04221415519714: line 10: sourcing "/home/neeladri/.vim/bundle/coc.nvim/autoload/coc/util.vim"[J
+2.04221510887146: finished sourcing /home/neeladri/.vim/bundle/coc.nvim/autoload/coc/util.vim[J
+2.04254603385925: continuing in coc#rpc#start_server[J
+2.04254794120789: chdir(/home/neeladri/.vim/bundle/coc.nvim/autoload/coc)[J
+2.04255795478821: fchdir() to previous dir[J
+2.04300117492676: line 14: sourcing "/home/neeladri/.vim/bundle/coc.nvim/autoload/coc/client.vim"[J
+2.04300713539124: finished sourcing /home/neeladri/.vim/bundle/coc.nvim/autoload/coc/client.vim[J
+2.04400706291199: continuing in coc#rpc#start_server[J
+2.04401898384094: Error detected while processing /home/neeladri/.vim/bundle/coc.nvim/plugin/coc.vim:[J
+2.04599809646606: line  440:[J E1208: -complete used without allowing arguments[Jfinished sourcing /home/neeladri/.vim/bundle/coc.nvim/plugin/coc.vim[J
+2.04600095748901: chdir(/home/neeladri/.vim/bundle/nerdtree/plugin)[J
+2.04601907730103: fchdir() to previous dir[J
+2.04657411575317: sourcing "/home/neeladri/.vim/bundle/nerdtree/plugin/NERD_tree.vim"[J
+2.04657912254333: chdir(/home/neeladri/.vim/bundle/nerdtree/autoload)[J
+2.04659295082092: fchdir() to previous dir[J
+2.0471031665802: line 56: sourcing "/home/neeladri/.vim/bundle/nerdtree/autoload/nerdtree.vim"[J
+2.04710602760315: finished sourcing /home/neeladri/.vim/bundle/nerdtree/autoload/nerdtree.vim[J
+2.04809594154358: continuing in /home/neeladri/.vim/bundle/nerdtree/plugin/NERD_tree.vim[J
+2.04809904098511: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.04810094833374: fchdir() to previous dir[J
+2.04951310157776: line 1: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/path.vim"[J
+2.04951596260071: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/path.vim[J
+2.04958510398865: continuing in nerdtree#loadClassFiles[J
+2.0495879650116: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.04959416389465: fchdir() to previous dir[J
+2.0501401424408: line 2: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/menu_controller.vim"[J
+2.05014204978943: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/menu_controller.vim[J
+2.05020809173584: continuing in nerdtree#loadClassFiles[J
+2.05021095275879: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.05021715164185: fchdir() to previous dir[J
+2.05145597457886: line 3: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/menu_item.vim"[J
+2.05145812034607: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/menu_item.vim[J
+2.0515251159668: continuing in nerdtree#loadClassFiles[J
+2.05152797698975: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.05153012275696: fchdir() to previous dir[J
+2.05224800109863: line 4: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/key_map.vim"[J
+2.05225014686584: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/key_map.vim[J
+2.05230712890625: continuing in nerdtree#loadClassFiles[J
+2.05230808258057: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.05236196517944: fchdir() to previous dir[J
+2.05319213867188: line 5: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/bookmark.vim"[J
+2.05319499969482: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/bookmark.vim[J
+2.05323004722595: continuing in nerdtree#loadClassFiles[J
+2.05323600769043: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.05325198173523: fchdir() to previous dir[J
+2.05437302589417: line 6: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/tree_file_node.vim"[J
+2.05437517166138: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/tree_file_node.vim[J
+2.05444407463074: continuing in nerdtree#loadClassFiles[J
+2.05444598197937: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.05445408821106: fchdir() to previous dir[J
+2.05569505691528: line 7: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/tree_dir_node.vim"[J
+2.05569696426392: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/tree_dir_node.vim[J
+2.05576109886169: continuing in nerdtree#loadClassFiles[J
+2.05576109886169: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.05581498146057: fchdir() to previous dir[J
+2.05630803108215: line 8: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/opener.vim"[J
+2.05630898475647: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/opener.vim[J
+2.05640816688538: continuing in nerdtree#loadClassFiles[J
+2.05640912055969: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.05640912055969: fchdir() to previous dir[J
+2.05718612670898: line 9: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/creator.vim"[J
+2.05718612670898: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/creator.vim[J
+2.05731415748596: continuing in nerdtree#loadClassFiles[J
+2.05731606483459: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.05740094184875: fchdir() to previous dir[J
+2.05840706825256: line 10: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/flag_set.vim"[J
+2.05841398239136: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/flag_set.vim[J
+2.0584990978241: continuing in nerdtree#loadClassFiles[J
+2.05850005149841: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.05858397483826: fchdir() to previous dir[J
+2.05928802490234: line 11: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/nerdtree.vim"[J
+2.05929017066956: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/nerdtree.vim[J
+2.05931901931763: continuing in nerdtree#loadClassFiles[J
+2.059326171875: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.0593900680542: fchdir() to previous dir[J
+2.06083703041077: line 12: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/ui.vim"[J
+2.06083917617798: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/ui.vim[J
+2.06090116500854: continuing in nerdtree#loadClassFiles[J
+2.06090211868286: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.06096410751343: fchdir() to previous dir[J
+2.06178903579712: line 13: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/event.vim"[J
+2.06178998947144: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/event.vim[J
+2.06182098388672: continuing in nerdtree#loadClassFiles[J
+2.0618269443512: chdir(/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree)[J
+2.06184101104736: fchdir() to previous dir[J
+2.0624361038208: line 14: sourcing "/home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/notifier.vim"[J
+2.06244206428528: finished sourcing /home/neeladri/.vim/bundle/nerdtree/lib/nerdtree/notifier.vim[J
+2.06281495094299: continuing in nerdtree#loadClassFiles[J
+2.06282305717468: chdir(/home/neeladri/.vim/bundle/nerdtree/autoload/nerdtree)[J
+2.06287312507629: fchdir() to previous dir[J
+2.06428503990173: line 143: sourcing "/home/neeladri/.vim/bundle/nerdtree/autoload/nerdtree/ui_glue.vim"[J
+2.06428599357605: finished sourcing /home/neeladri/.vim/bundle/nerdtree/autoload/nerdtree/ui_glue.vim[J
+2.06675004959106: continuing in /home/neeladri/.vim/bundle/nerdtree/plugin/NERD_tree.vim[J
+2.06675696372986: chdir(/home/neeladri/.vim/bundle/nerdtree/nerdtree_plugin)[J
+2.06677412986755: fchdir() to previous dir[J
+2.0674090385437: line 5: sourcing "/home/neeladri/.vim/bundle/nerdtree/nerdtree_plugin/exec_menuitem.vim"[J
+2.06740999221802: finished sourcing /home/neeladri/.vim/bundle/nerdtree/nerdtree_plugin/exec_menuitem.vim[J
+2.06741094589233: continuing in nerdtree#postSourceActions[J
+2.06741094589233: chdir(/home/neeladri/.vim/bundle/nerdtree/nerdtree_plugin)[J
+2.0674159526825: fchdir() to previous dir[J
+2.06908702850342: line 5: sourcing "/home/neeladri/.vim/bundle/nerdtree/nerdtree_plugin/fs_menu.vim"[J
+2.06908917427063: finished sourcing /home/neeladri/.vim/bundle/nerdtree/nerdtree_plugin/fs_menu.vim[J
+2.06915211677551: continuing in nerdtree#postSourceActions[J
+2.06915402412415: chdir(/home/neeladri/.vim/bundle/nerdtree/nerdtree_plugin)[J
+2.06915402412415: fchdir() to previous dir[J
+2.06978702545166: line 5: sourcing "/home/neeladri/.vim/bundle/nerdtree/nerdtree_plugin/vcs.vim"[J
+2.06978797912598: finished sourcing /home/neeladri/.vim/bundle/nerdtree/nerdtree_plugin/vcs.vim[J
+2.07021808624268: continuing in nerdtree#postSourceActions[J
+2.07102108001709: finished sourcing /home/neeladri/.vim/bundle/nerdtree/plugin/NERD_tree.vim[J
+2.07102298736572: chdir(/home/neeladri/.vim/bundle/emmet-vim/plugin)[J
+2.07102394104004: fchdir() to previous dir[J
+2.07334804534912: sourcing "/home/neeladri/.vim/bundle/emmet-vim/plugin/emmet.vim"[J
+2.07409000396729: finished sourcing /home/neeladri/.vim/bundle/emmet-vim/plugin/emmet.vim[J
+2.0740921497345: chdir(/home/neeladri/.vim/bundle/vim-airline-themes/plugin)[J
+2.07414793968201: fchdir() to previous dir[J
+2.07463097572327: sourcing "/home/neeladri/.vim/bundle/vim-airline-themes/plugin/airline-themes.vim"[J
+2.07525610923767: finished sourcing /home/neeladri/.vim/bundle/vim-airline-themes/plugin/airline-themes.vim[J
+2.07525706291199: chdir(/home/neeladri/.vim/bundle/vim-airline/plugin)[J
+2.07525706291199: fchdir() to previous dir[J
+2.0800940990448: sourcing "/home/neeladri/.vim/bundle/vim-airline/plugin/airline.vim"[J
+2.08009600639343: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline)[J
+2.08015108108521: fchdir() to previous dir[J
+2.08098697662354: line 293: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/init.vim"[J
+2.08098816871643: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/init.vim[J
+2.0811870098114: continuing in /home/neeladri/.vim/bundle/vim-airline/plugin/airline.vim[J
+2.08119797706604: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline)[J
+2.08125305175781: fchdir() to previous dir[J
+2.08163714408875: line 122: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/parts.vim"[J
+2.08163809776306: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/parts.vim[J
+2.08205008506775: continuing in airline#init#bootstrap[J
+2.08205199241638: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/formatter)[J
+2.08210515975952: fchdir() to previous dir[J
+2.0822319984436: line 135: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/formatter/short_path.vim"[J
+2.08223915100098: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/formatter/short_path.vim[J
+2.08304405212402: continuing in airline#init#bootstrap[J
+2.08304595947266: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline)[J
+2.08310008049011: fchdir() to previous dir[J
+2.08353710174561: line 71: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/util.vim"[J
+2.08353805541992: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/util.vim[J
+2.08363604545593: continuing in <SNR>42_airline_toggle[J
+2.08394908905029: finished sourcing /home/neeladri/.vim/bundle/vim-airline/plugin/airline.vim[J
+2.08395099639893: chdir(/home/neeladri/.vim/bundle/vim-surround/plugin)[J
+2.08400917053223: fchdir() to previous dir[J
+2.08466696739197: sourcing "/home/neeladri/.vim/bundle/vim-surround/plugin/surround.vim"[J
+2.08500409126282: finished sourcing /home/neeladri/.vim/bundle/vim-surround/plugin/surround.vim[J
+2.08500504493713: chdir(/home/neeladri/.vim/bundle/delimitmate/plugin)[J
+2.08505916595459: fchdir() to previous dir[J
+2.08584308624268: sourcing "/home/neeladri/.vim/bundle/delimitmate/plugin/delimitMate.vim"[J
+2.08584403991699: chdir(/home/neeladri/.vim/bundle/delimitmate/autoload)[J
+2.08589816093445: fchdir() to previous dir[J
+2.08638596534729: line 1: sourcing "/home/neeladri/.vim/bundle/delimitmate/autoload/delimitMate.vim"[J
+2.08639216423035: finished sourcing /home/neeladri/.vim/bundle/delimitmate/autoload/delimitMate.vim[J
+2.08826398849487: continuing in <SNR>48_set[J
+2.08949494361877: finished sourcing /home/neeladri/.vim/bundle/delimitmate/plugin/delimitMate.vim[J
+2.0894980430603: chdir(/home/neeladri/.vim/bundle/fzf/plugin)[J
+2.08955502510071: fchdir() to previous dir[J
+2.09171104431152: sourcing "/home/neeladri/.vim/bundle/fzf/plugin/fzf.vim"[J
+2.09255599975586: finished sourcing /home/neeladri/.vim/bundle/fzf/plugin/fzf.vim[J
+2.09255695343018: chdir(/home/neeladri/.vim/bundle/rainbow_parentheses.vim/plugin)[J
+2.09261894226074: fchdir() to previous dir[J
+2.09321713447571: sourcing "/home/neeladri/.vim/bundle/rainbow_parentheses.vim/plugin/rainbow_parentheses.vim"[J
+2.09385800361633: finished sourcing /home/neeladri/.vim/bundle/rainbow_parentheses.vim/plugin/rainbow_parentheses.vim[J
+2.09386014938354: chdir(/home/neeladri/.vim/bundle/nerdcommenter/plugin)[J
+2.09392213821411: fchdir() to previous dir[J
+2.09903597831726: sourcing "/home/neeladri/.vim/bundle/nerdcommenter/plugin/NERD_commenter.vim"[J
+2.09989309310913: finished sourcing /home/neeladri/.vim/bundle/nerdcommenter/plugin/NERD_commenter.vim[J
+2.09989500045776: chdir(/home/neeladri/.vim/bundle/vim-babel/plugin)[J
+2.09995698928833: fchdir() to previous dir[J
+2.10038900375366: sourcing "/home/neeladri/.vim/bundle/vim-babel/plugin/babel.vim"[J
+2.1007821559906: finished sourcing /home/neeladri/.vim/bundle/vim-babel/plugin/babel.vim[J
+2.10078406333923: chdir(/home/neeladri/.vim/bundle/vim-highlightedyank/plugin)[J
+2.10084700584412: fchdir() to previous dir[J
+2.10222005844116: sourcing "/home/neeladri/.vim/bundle/vim-highlightedyank/plugin/highlightedyank.vim"[J
+2.10302901268005: finished sourcing /home/neeladri/.vim/bundle/vim-highlightedyank/plugin/highlightedyank.vim[J
+2.10302996635437: chdir(/home/neeladri/.vim/bundle/matchit.zip/plugin)[J
+2.10309195518494: fchdir() to previous dir[J
+2.10484910011292: sourcing "/home/neeladri/.vim/bundle/matchit.zip/plugin/matchit.vim"[J
+2.10581803321838: finished sourcing /home/neeladri/.vim/bundle/matchit.zip/plugin/matchit.vim[J
+2.10581994056702: chdir(/usr/share/vim/vim82/plugin)[J
+2.10587310791016: fchdir() to previous dir[J
+2.10612607002258: sourcing "/usr/share/vim/vim82/plugin/getscriptPlugin.vim"[J
+2.10613203048706: finished sourcing /usr/share/vim/vim82/plugin/getscriptPlugin.vim[J
+2.10614204406738: chdir(/usr/share/vim/vim82/plugin)[J
+2.10619711875916: fchdir() to previous dir[J
+2.10648608207703: sourcing "/usr/share/vim/vim82/plugin/gzip.vim"[J
+2.10649514198303: finished sourcing /usr/share/vim/vim82/plugin/gzip.vim[J
+2.10650515556335: chdir(/usr/share/vim/vim82/plugin)[J
+2.10651516914368: fchdir() to previous dir[J
+2.10725903511047: sourcing "/usr/share/vim/vim82/plugin/logiPat.vim"[J
+2.10726404190063: finished sourcing /usr/share/vim/vim82/plugin/logiPat.vim[J
+2.10726499557495: chdir(/usr/share/vim/vim82/plugin)[J
+2.10734009742737: fchdir() to previous dir[J
+2.10757613182068: sourcing "/usr/share/vim/vim82/plugin/manpager.vim"[J
+2.10757899284363: finished sourcing /usr/share/vim/vim82/plugin/manpager.vim[J
+2.10758113861084: chdir(/usr/share/vim/vim82/plugin)[J
+2.10765600204468: fchdir() to previous dir[J
+2.10793209075928: sourcing "/usr/share/vim/vim82/plugin/matchparen.vim"[J
+2.10793495178223: finished sourcing /usr/share/vim/vim82/plugin/matchparen.vim[J
+2.10793709754944: chdir(/usr/share/vim/vim82/plugin)[J
+2.10801005363464: fchdir() to previous dir[J
+2.1086311340332: sourcing "/usr/share/vim/vim82/plugin/netrwPlugin.vim"[J
+2.10863494873047: finished sourcing /usr/share/vim/vim82/plugin/netrwPlugin.vim[J
+2.10863614082336: chdir(/usr/share/vim/vim82/plugin)[J
+2.10871005058289: fchdir() to previous dir[J
+2.1088330745697: sourcing "/usr/share/vim/vim82/plugin/rrhelper.vim"[J
+2.10883498191833: finished sourcing /usr/share/vim/vim82/plugin/rrhelper.vim[J
+2.10883712768555: chdir(/usr/share/vim/vim82/plugin)[J
+2.10891199111938: fchdir() to previous dir[J
+2.10928010940552: sourcing "/usr/share/vim/vim82/plugin/spellfile.vim"[J
+2.10928297042847: finished sourcing /usr/share/vim/vim82/plugin/spellfile.vim[J
+2.10928511619568: chdir(/usr/share/vim/vim82/plugin)[J
+2.10935711860657: fchdir() to previous dir[J
+2.10958695411682: sourcing "/usr/share/vim/vim82/plugin/tarPlugin.vim"[J
+2.10958909988403: finished sourcing /usr/share/vim/vim82/plugin/tarPlugin.vim[J
+2.10959100723267: chdir(/usr/share/vim/vim82/plugin)[J
+2.1096670627594: fchdir() to previous dir[J
+2.10998296737671: sourcing "/usr/share/vim/vim82/plugin/tohtml.vim"[J
+2.10998511314392: finished sourcing /usr/share/vim/vim82/plugin/tohtml.vim[J
+2.10999703407288: chdir(/usr/share/vim/vim82/plugin)[J
+2.11005806922913: fchdir() to previous dir[J
+2.11028099060059: sourcing "/usr/share/vim/vim82/plugin/vimballPlugin.vim"[J
+2.1102819442749: finished sourcing /usr/share/vim/vim82/plugin/vimballPlugin.vim[J
+2.11028695106506: chdir(/usr/share/vim/vim82/plugin)[J
+2.11035203933716: fchdir() to previous dir[J
+2.11059308052063: sourcing "/usr/share/vim/vim82/plugin/zipPlugin.vim"[J
+2.11070895195007: finished sourcing /usr/share/vim/vim82/plugin/zipPlugin.vim[J
+2.11137914657593: not found in 'packpath': "pack/*/start/*"[J
+2.11138105392456: chdir(/home/neeladri/.vim/bundle/indentline/after/plugin)[J
+2.11144614219666: fchdir() to previous dir[J
+2.1122989654541: sourcing "/home/neeladri/.vim/bundle/indentline/after/plugin/indentLine.vim"[J
+2.1124050617218: finished sourcing /home/neeladri/.vim/bundle/indentline/after/plugin/indentLine.vim[J
+2.11674308776855: Reading viminfo file "/home/neeladri/.viminfo" info oldfiles[JOpening the X display took 1 msec[JTesting the X display failed[J
+27.5684740543365: Press ENTER or type command to continueXSMP handling save-yourself request[J[?25hchdir(/home/neeladri/.vim/bundle/coc.nvim/autoload/coc)fchdir() to previous dirsourcing "/home/neeladri/.vim/bundle/coc.nvim/autoload/coc/api.vim"finished sourcing /home/neeladri/.vim/bundle/coc.nvim/autoload/coc/api.vim[?25l[J[J[J[J[?25h[?1049h[22;0;0t[>4;2m[?1h=[?2004h[?1004h[1;47r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[38;2;248;248;242m[48;2;27;29;30m[H[2J[?25l[46;1HExecuting CursorMoved Autocommands for "*"
+27.5684840679169: autocommand call s:Autocmd('CursorMoved', +expand('<abuf>'), [line('.'), col('.')])
+27.5684850215912: Executing CursorMoved Autocommands for "*"
+28.4503350257874: [38;2;102;217;239mPress ENTER or type command to continue[?25h[m[38;2;248;248;242m[48;2;27;29;30m
+28.4503419399261: [?25lautocommand call <sid>on_cursor_moved()
+28.450343132019: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4503440856934: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline)
+28.4503450393677: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.450345993042: fchdir() to previous dir
+28.4503469467163: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4503481388092: line 6: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions.vim"
+28.4503481388092: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4503490924835: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions.vim
+28.4503500461578: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4503509998322: continuing in <SNR>42_init
+28.4503519535065: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4503519535065: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions)
+28.4503531455994: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4503540992737: fchdir() to previous dir
+28.450355052948: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4503560066223: line 16: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/quickfix.vim"
+28.4503560066223: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4503569602966: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/quickfix.vim
+28.4503581523895: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4503591060638: continuing in airline#extensions#load
+28.4503600597382: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4503600597382: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload)
+28.4503610134125: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4503619670868: fchdir() to previous dir
+28.4517731666565: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4517760276794: line 1: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline.vim"
+28.4517769813538: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4517781734467: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline.vim
+28.4517869949341: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4517879486084: continuing in 348
+28.4517891407013: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4518091678619: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions)
+28.4518091678619: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4518101215363: fchdir() to previous dir
+28.4518110752106: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4518120288849: line 40: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/netrw.vim"
+28.4518129825592: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4518141746521: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/netrw.vim
+28.4518141746521: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4518151283264: continuing in airline#extensions#load
+28.4518160820007: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.451817035675: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions)
+28.4518179893494: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4518189430237: fchdir() to previous dir
+28.4518201351166: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4518210887909: line 46: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/fzf.vim"
+28.4518210887909: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4518220424652: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/fzf.vim
+28.453143119812: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.453145980835: continuing in airline#extensions#load
+28.4531471729279: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4531481266022: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions)
+28.4531490802765: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4531500339508: fchdir() to previous dir
+28.4531509876251: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4531519412994: line 58: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/term.vim"
+28.4531531333923: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4531531333923: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline)
+28.4531540870667: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.453155040741: fchdir() to previous dir
+28.4531559944153: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4531569480896: line 11: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/section.vim"
+28.4531581401825: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4531581401825: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/section.vim
+28.4531590938568: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4531600475311: continuing in /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/term.vim
+28.4531610012054: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4531619548798: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline)
+28.4531619548798: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4531631469727: fchdir() to previous dir
+28.453164100647: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4531650543213: line 2: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/highlighter.vim"
+28.4546229839325: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4546270370483: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/highlighter.vim
+28.4546279907227: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4546279907227: continuing in <SNR>76_wrap_accent
+28.454628944397: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4546301364899: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/term.vim
+28.4546310901642: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4546320438385: continuing in airline#extensions#load
+28.4546329975128: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4546339511871: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions)
+28.45463514328: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.45463514328: fchdir() to previous dir
+28.4546360969543: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4546370506287: line 102: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/hunks.vim"
+28.454638004303: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4546389579773: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/hunks.vim
+28.4546401500702: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4546401500702: continuing in airline#extensions#load
+28.4546411037445: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4546420574188: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions)
+28.4546430110931: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4546439647675: fchdir() to previous dir
+28.4546451568604: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4546461105347: line 213: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/coc.vim"
+28.4560611248016: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4560639858246: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/coc.vim
+28.4560661315918: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4560661315918: continuing in airline#extensions#load
+28.4560670852661: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4560680389404: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions)
+28.4560689926147: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4560699462891: fchdir() to previous dir
+28.456071138382: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4560720920563: line 238: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/wordcount.vim"
+28.4560720920563: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4560730457306: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/wordcount.vim
+28.4560739994049: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4560799598694: continuing in airline#extensions#load
+28.4560811519623: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4560821056366: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions)
+28.4560821056366: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4560830593109: fchdir() to previous dir
+28.4560840129852: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4560849666595: line 243: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline.vim"
+28.4560861587524: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4560871124268: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline.vim
+28.4560871124268: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4560880661011: continuing in airline#extensions#load
+28.4572451114655: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4572479724884: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline)
+28.4572491645813: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4572501182556: fchdir() to previous dir
+28.4572510719299: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4572520256042: line 6: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/autoshow.vim"
+28.4572520256042: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4572529792786: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/autoshow.vim
+28.4572541713715: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4572551250458: continuing in <SNR>81_toggle_on
+28.4572560787201: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4572570323944: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline)
+28.4572579860687: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4572579860687: fchdir() to previous dir
+28.457258939743: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4572601318359: line 7: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/tabs.vim"
+28.4572610855103: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4572620391846: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/tabs.vim
+28.4572629928589: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4572639465332: continuing in <SNR>81_toggle_on
+28.4572639465332: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4572651386261: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline)
+28.4598519802094: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4598550796509: fchdir() to previous dir
+28.4598560333252: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4598569869995: line 8: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/buffers.vim"
+28.4598579406738: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4598591327667: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/buffers.vim
+28.459860086441: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4598610401154: continuing in <SNR>81_toggle_on
+28.4598610401154: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4598619937897: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions)
+28.459862947464: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4598641395569: fchdir() to previous dir
+28.4598650932312: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4598660469055: line 293: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/keymap.vim"
+28.4598670005798: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4598670005798: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/keymap.vim
+28.4598679542542: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.459869146347: continuing in airline#extensions#load
+28.4598701000214: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4598710536957: not found in 'runtimepath': "autoload/vimtex.vim"
+28.45987200737: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4598729610443: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions)
+28.4598729610443: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4598741531372: fchdir() to previous dir
+28.4598751068115: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4663779735565: line 321: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/searchcount.vim"
+28.4664011001587: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.466402053833: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/searchcount.vim
+28.4664030075073: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4664039611816: continuing in airline#extensions#load
+28.4664061069489: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4664080142975: chdir(/home/neeladri/.vim/bundle/vim-airline-themes/autoload/airline/themes)
+28.4664089679718: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.466411113739: fchdir() to previous dir
+28.4664120674133: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.466413974762: line 15: sourcing "/home/neeladri/.vim/bundle/vim-airline-themes/autoload/airline/themes/onedark.vim"
+28.4664151668549: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4664170742035: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline)
+28.4664180278778: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.466420173645: fchdir() to previous dir
+28.46644115448: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4664430618286: line 31: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/themes.vim"
+28.4664449691772: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4664471149445: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/themes.vim
+28.4664480686188: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4664499759674: continuing in airline#themes#onedark#refresh
+28.4664640426636: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.4664649963379: finished sourcing /home/neeladri/.vim/bundle/vim-airline-themes/autoload/airline/themes/onedark.vim
+28.4688630104065: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.468866109848: continuing in <SNR>42_init
+28.5056631565094: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5056710243225: Executing CursorMoved Autocommands for "*"
+28.5056719779968: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5056731700897: autocommand call s:Highlight_Matching_Pair()
+28.505674123764: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5056750774384: [27m[23m[29m[m[38;2;248;248;242m[48;2;27;29;30m[H[2J[46;1Hchdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline)
+28.5071210861206: fchdir() to previous dir
+28.5071239471436: line 9: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/ctrlspace.vim"
+28.5071251392365: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5071260929108: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/ctrlspace.vim
+28.5071270465851: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5071280002594: continuing in airline#extensions#tabline#get
+28.5071280002594: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5071289539337: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline)
+28.5071301460266: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5071310997009: fchdir() to previous dir
+28.5071320533752: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5071320533752: line 10: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/tabws.vim"
+28.5071330070496: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5071339607239: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/tabws.vim
+28.5071351528168: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5071361064911: continuing in airline#extensions#tabline#get
+28.5071361064911: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5071370601654: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline)
+28.5071380138397: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.507138967514: fchdir() to previous dir
+28.5071401596069: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5071401596069: line 15: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/builder.vim"
+28.5071411132812: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5120520591736: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/builder.vim
+28.5120551586151: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5120561122894: continuing in airline#extensions#tabline#new_builder
+28.5120570659637: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5120580196381: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline)
+28.5120589733124: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5120601654053: fchdir() to previous dir
+28.5120611190796: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5120611190796: line 27: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/buflist.vim"
+28.5120620727539: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5120630264282: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/buflist.vim
+28.5120639801025: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5120651721954: continuing in airline#extensions#tabline#buffers#get
+28.5120651721954: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5120661258698: chdir(/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/formatters)
+28.5120670795441: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5120680332184: fchdir() to previous dir
+28.5120689868927: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.512069940567: line 3: sourcing "/home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/formatters/default.vim"
+28.512069940567: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5120711326599: finished sourcing /home/neeladri/.vim/bundle/vim-airline/autoload/airline/extensions/tabline/formatters/default.vim
+28.5120720863342: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+28.5120730400085: continuing in airline#extensions#tabline#get_buffer_name
+28.5132999420166: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m[1;1H[38;2;40;44;52m[48;2;152;195;121m [No Name] [m[38;2;248;248;242m[48;2;27;29;30m[38;2;152;195;121m[48;2;40;44;52m[1;13H                                                                                                                                                                        [m[38;2;248;248;242m[48;2;27;29;30m[38;2;40;44;52m[48;2;40;44;52m[m[38;2;248;248;242m[48;2;27;29;30m[1;182H[38;2;62;68;82m[48;2;40;44;52m[m[38;2;248;248;242m[48;2;27;29;30m[1;183H[38;2;171;178;191m[48;2;62;68;82m buffers [m[38;2;248;248;242m[48;2;27;29;30m[2;1H[38;2;70;84;87m[48;2;35;37;38m1   [m[38;2;248;248;242m[48;2;27;29;30m[2;6H[K[3;1H[38;2;70;84;87m~                                                                                                                                                                                              [4;1H~                                                                                                                                                                                              [5;1H~                                                                                                                                                                                              [6;1H~                                                                                                                                                                                              [7;1H~                                                                                                                                                                                              [8;1H~                                                                                                                                                                                              [9;1H~                                                                                                                                                                                              [10;1H~                                                                                                                                                                                              [11;1H~                                                                                                                                                                                              [12;1H~                                                                                                                                                                                              [13;1H~                                                                                                                                                                                              [14;1H~                                                                                                                                                                                              [15;1H~                                                                                                                                                                                              [16;1H~                                                                                                                                                                                              [17;1H~                                                                                                                                                                                              [18;1H~                                                                                                                                                                                              [19;1H~                                                                                                                                                                                              [20;1H~                                                                                                                                                                                              [21;1H~                                                                                                                                                                                              [22;1H~                                                                                                                                                                                              [23;1H~                                                                                                                                                                                              [24;1H~                                                                                                                                                                                              [25;1H~                                                                                                                                                                                              [26;1H~                                                                                                                                                                                              [27;1H~                                                                                                                                                                                              [28;1H~                                                                                                                                                                                              [29;1H~                                                                                                                                                                                              [30;1H~                                                                                                                                                                                              [31;1H~                                                                                                                                                                                              [32;1H~                                                                                                                                                                                              [33;1H~                                                                                                                                                                                              [34;1H~                                                                                                                                                                                              [35;1H~                                                                                                                                                                                              [36;1H~                                                                                                                                                                                              [37;1H~                                                                                                                                                                                              [38;1H~                                                                                                                                                                                              [39;1H~                                                                                                                                                                                              [40;1H~                                                                                                                                                                                              [41;1H~                                                                                                                                                                                              [42;1H~                                                                                                                                                                                              [43;1H~                                                                                                                                                                                              [44;1H~                                                                                                                                                                                              [m[38;2;248;248;242m[48;2;27;29;30m[45;1H[38;2;40;44;52m[48;2;152;195;121m [m[38;2;248;248;242m[48;2;27;29;30m[1m[38;2;40;44;52m[48;2;152;195;121mNORMAL[m[38;2;248;248;242m[48;2;27;29;30m[38;2;40;44;52m[48;2;152;195;121m [m[38;2;248;248;242m[48;2;27;29;30m[38;2;152;195;121m[48;2;62;68;82m[m[38;2;248;248;242m[48;2;27;29;30m[45;10H[38;2;62;68;82m[48;2;40;44;52m[m[38;2;248;248;242m[48;2;27;29;30m[45;11H[38;2;152;195;121m[48;2;40;44;52m [No Name]                                                                                                                                              [m[38;2;248;248;242m[48;2;27;29;30m[38;2;40;44;52m[48;2;40;44;52m[m[38;2;248;248;242m[48;2;27;29;30m[45;164H[38;2;62;68;82m[48;2;40;44;52m[m[38;2;248;248;242m[48;2;27;29;30m[45;165H[38;2;171;178;191m[48;2;62;68;82m [unix] [m[38;2;248;248;242m[48;2;27;29;30m[38;2;152;195;121m[48;2;62;68;82m[m[38;2;248;248;242m[48;2;27;29;30m[45;174H[38;2;40;44;52m[48;2;152;195;121m 100% [m[38;2;248;248;242m[48;2;27;29;30m[1m[38;2;40;44;52m[48;2;152;195;121m☰ 0/1 [m[38;2;248;248;242m[48;2;27;29;30m[45;187H[38;2;40;44;52m[48;2;152;195;121m:1 [m[38;2;248;248;242m[48;2;27;29;30m[38;2;229;192;123m[48;2;152;195;121m[m[38;2;248;248;242m[48;2;27;29;30m[45;191H[38;2;224;108;117m[48;2;229;192;123m[m[38;2;248;248;242m[48;2;27;29;30m[16;88HVIM - Vi IMproved[18;88Hversion 8.2.3458[19;84Hby Bram Moolenaar et al.[20;75HModified by jonathon.fernyhough@york.ac.uk[21;75HVim is open source and freely distributable[23;84HSponsor Vim development![24;73Htype  :help sponsor[38;2;70;84;87m<Enter>[m[38;2;248;248;242m[48;2;27;29;30m    for information [26;73Htype  :q[38;2;70;84;87m<Enter>[m[38;2;248;248;242m[48;2;27;29;30m               to exit         [27;73Htype  :help[38;2;70;84;87m<Enter>[m[38;2;248;248;242m[48;2;27;29;30m  or  [38;2;70;84;87m<F1>[m[38;2;248;248;242m[48;2;27;29;30m  for on-line help[28;73Htype  :help version8[38;2;70;84;87m<Enter>[m[38;2;248;248;242m[48;2;27;29;30m   for version info[2;5H[?25h[?25l[47;1HExecuting InsertEnter Autocommands for "*"
+30.4839990139008: [38;2;102;217;239mPress ENTER or type command to continue[?25h[m[38;2;248;248;242m[48;2;27;29;30m
+30.4840061664581: [?25lautocommand call s:Autocmd('InsertEnter', +expand('<abuf>'))
+30.4840080738068: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+30.4840080738068: [1m[38;2;230;219;116m-- INSERT --[m[38;2;248;248;242m[48;2;27;29;30mExecuting InsertCharPre Autocommands for "*"
+30.6399431228638: [38;2;102;217;239mPress ENTER or type command to continue[?25h[m[38;2;248;248;242m[48;2;27;29;30m
+30.6399500370026: [?25lautocommand call s:Autocmd('InsertCharPre', v:char)
+30.6399509906769: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+30.6399519443512: Executing InsertCharPre Autocommands for "*"
+31.4777121543884: [38;2;102;217;239mPress ENTER or type command to continue[?25h[m[38;2;248;248;242m[48;2;27;29;30m
+31.4777190685272: [?25lautocommand call s:Autocmd('InsertCharPre', v:char)
+32.6259021759033: [38;2;102;217;239mPress ENTER or type command to continue[?25h[m[38;2;248;248;242m[48;2;27;29;30m
+32.6259090900421: [?25l[38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30mExecuting InsertLeave Autocommands for "*"
+32.6259100437164: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+32.6259109973907: autocommand call s:Autocmd('InsertLeave', +expand('<abuf>'))
+32.6259119510651: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+33.1218280792236: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m[47;1H[K[47;1H:[?25h[?25lExecuting CursorMoved Autocommands for "*"
+33.3618230819702: [38;2;102;217;239mPress ENTER or type command to continue[?25h[m[38;2;248;248;242m[48;2;27;29;30m
+33.3618309497833: [?25lautocommand call s:Autocmd('CursorMoved', +expand('<abuf>'), [line('.'), col('.')])
+35.3778729438782: [38;2;102;217;239mPress ENTER or type command to continue[?25h[m[38;2;248;248;242m[48;2;27;29;30m[47;1H[K[47;1H[38;2;230;219;116m-- More --[m[38;2;248;248;242m[48;2;27;29;30m[47;1H[K[47;1H
+35.3778829574585: [?25lExecuting CursorMoved Autocommands for "*"
+35.6991260051727: [38;2;102;217;239mPress ENTER or type command to continue[?25h[m[38;2;248;248;242m[48;2;27;29;30m
+35.6991319656372: [?25lautocommand call <sid>on_cursor_moved()
+35.6991331577301: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.6991341114044: Executing CursorMoved Autocommands for "*"
+35.6991350650787: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.6991360187531: autocommand call s:Highlight_Matching_Pair()
+35.6991369724274: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.6991369724274: Executing TextChanged Autocommands for "*"
+35.6991381645203: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.6991391181946: autocommand call s:Autocmd('TextChanged', +expand('<abuf>'), getbufvar(+expand('<abuf>'), 'changedtick'))
+35.6991400718689: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.6991410255432: Executing TextChanged Autocommands for "*"
+35.6991419792175: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.6991419792175: autocommand call s:Highlight_Matching_Pair()
+35.6991431713104: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.6991441249847: [27m[23m[29m[m[38;2;248;248;242m[48;2;27;29;30m[H[2J[1;1H[38;2;40;44;52m[48;2;97;175;239m [No Name]+ [m[38;2;248;248;242m[48;2;27;29;30m[38;2;97;175;239m[48;2;40;44;52m[m[38;2;248;248;242m[48;2;27;29;30m[1;14H[38;2;152;195;121m[48;2;40;44;52m                                                                                                                                                                       [m[38;2;248;248;242m[48;2;27;29;30m[38;2;40;44;52m[48;2;40;44;52m[m[38;2;248;248;242m[48;2;27;29;30m[1;182H[38;2;62;68;82m[48;2;40;44;52m[m[38;2;248;248;242m[48;2;27;29;30m[1;183H[38;2;171;178;191m[48;2;62;68;82m buffers [m[38;2;248;248;242m[48;2;27;29;30m[2;1H[38;2;70;84;87m[48;2;35;37;38m1   [m[38;2;248;248;242m[48;2;27;29;30m:q
+35.7048139572144: [38;2;70;84;87m~                                                                                                                                                                                              [4;1H~                                                                                                                                                                                              [5;1H~                                                                                                                                                                                              [6;1H~                                                                                                                                                                                              [7;1H~                                                                                                                                                                                              [8;1H~                                                                                                                                                                                              [9;1H~                                                                                                                                                                                              [10;1H~                                                                                                                                                                                              [11;1H~                                                                                                                                                                                              [12;1H~                                                                                                                                                                                              [13;1H~                                                                                                                                                                                              [14;1H~                                                                                                                                                                                              [15;1H~                                                                                                                                                                                              [16;1H~                                                                                                                                                                                              [17;1H~                                                                                                                                                                                              [18;1H~                                                                                                                                                                                              [19;1H~                                                                                                                                                                                              [20;1H~                                                                                                                                                                                              [21;1H~                                                                                                                                                                                              [22;1H~                                                                                                                                                                                              [23;1H~                                                                                                                                                                                              [24;1H~                                                                                                                                                                                              [25;1H~                                                                                                                                                                                              [26;1H~                                                                                                                                                                                              [27;1H~                                                                                                                                                                                              [28;1H~                                                                                                                                                                                              [29;1H~                                                                                                                                                                                              [30;1H~                                                                                                                                                                                              [31;1H~                                                                                                                                                                                              [32;1H~                                                                                                                                                                                              [33;1H~                                                                                                                                                                                              [34;1H~                                                                                                                                                                                              [35;1H~                                                                                                                                                                                              [36;1H~                                                                                                                                                                                              [37;1H~                                                                                                                                                                                              [38;1H~                                                                                                                                                                                              [39;1H~                                                                                                                                                                                              [40;1H~                                                                                                                                                                                              [41;1H~                                                                                                                                                                                              [42;1H~                                                                                                                                                                                              [43;1H~                                                                                                                                                                                              [44;1H~                                                                                                                                                                                              [m[38;2;248;248;242m[48;2;27;29;30m[46;1Hairline: group: airline_error already done, skipping
+35.7049641609192: airline: group: airline_error_bold already done, skipping
+35.7049679756165: airline: group: airline_error_red already done, skipping
+35.7065961360931: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.7065989971161: airline: group: airline_warning already done, skipping
+35.7066819667816: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.7066850662231: airline: group: airline_warning_bold already done, skipping
+35.7067620754242: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.7067651748657: airline: group: airline_warning_red already done, skipping
+35.7069351673126: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.7069380283356: airline: group: airline_c already done, skipping
+35.7069971561432: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.7070000171661: airline: group: airline_c_bold already done, skipping
+35.7070071697235: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.7070081233978: airline: group: airline_c_red already done, skipping
+35.7071039676666: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.7071070671082: airline: group: airline_term already done, skipping
+35.7071220874786: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.707123041153: airline: group: airline_term_bold already done, skipping
+35.7071969509125: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m
+35.707200050354: airline: group: airline_term_red already done, skipping
+35.7124631404877: [38;2;102;217;239mPress ENTER or type command to continue[m[38;2;248;248;242m[48;2;27;29;30m[45;1H[38;2;40;44;52m[48;2;152;195;121m [m[38;2;248;248;242m[48;2;27;29;30m[1m[38;2;40;44;52m[48;2;152;195;121mNORMAL[m[38;2;248;248;242m[48;2;27;29;30m[38;2;40;44;52m[48;2;152;195;121m [m[38;2;248;248;242m[48;2;27;29;30m[38;2;152;195;121m[48;2;62;68;82m[m[38;2;248;248;242m[48;2;27;29;30m[45;10H[38;2;62;68;82m[48;2;40;44;52m[m[38;2;248;248;242m[48;2;27;29;30m[45;11H[38;2;248;248;242m[48;2;40;44;52m [No Name][+]                                                                                                                                           [m[38;2;248;248;242m[48;2;27;29;30m[38;2;40;44;52m[48;2;40;44;
