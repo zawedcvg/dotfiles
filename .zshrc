@@ -192,3 +192,6 @@ unset __conda_setup
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export EDITOR=vim
+export VISUAL="$EDITOR"

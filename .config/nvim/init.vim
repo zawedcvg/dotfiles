@@ -31,7 +31,6 @@ set splitkeep=screen
 
 "for allowing the path thing
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-let g:jupytext_fmt = 'py'
 
 "for virtual text
 hi DiagnosticVirtualTextError guifg=#e67e80
@@ -139,10 +138,9 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 
 lua << EOF
-require("symbols-outline").setup()
-require('render-markdown').setup()
-require('render-markdown').enable()
+--require("symbols-outline").setup()
 --require('colorful-winsep').setup({})
+require("outline").setup({})
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {"norg"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     highlight = {
@@ -163,7 +161,6 @@ signature_cfg = {
 }
 
 require("todo-comments").setup()
-require("lsp_signature").setup(signature_cfg)
 require("fidget").setup()
 require("trouble").setup {
 }
@@ -360,8 +357,6 @@ require("noice").setup({
 })
 
 
-require("remote-nvim").setup()
-
 
 require("obsidian").setup({
   workspaces = {
@@ -386,4 +381,53 @@ require("obsidian").setup({
           date_format = "%Y-%m-%d-%a",
           time_format = "%H:%M",
       },
+
+  -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
+  -- URL it will be ignored but you can customize this behavior here.
+  ---@param url string
+  follow_url_func = function(url)
+    -- Open the URL in the default web browser.
+    --vim.fn.jobstart({"xdg-open", url})  -- linux
+    -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+     vim.ui.open(url) -- need Neovim 0.10.0+
+  end,
   })
+
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        -- You can optionally set descriptions to the mappings (used in the desc parameter of
+        -- nvim_buf_set_keymap) which plugins like which-key display
+        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+        -- You can also use captures from other query groups like `locals.scm`
+        ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
+      },
+      -- You can choose the select mode (default is charwise 'v')
+      --
+      -- * selection_mode: eg 'v'
+      -- and should return true or false
+      include_surrounding_whitespace = true,
+    },
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<leader>a"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["<leader>A"] = "@parameter.inner",
+      },
+    },
+  },
+}
+require("oil").setup()
+require('neogen').setup {}

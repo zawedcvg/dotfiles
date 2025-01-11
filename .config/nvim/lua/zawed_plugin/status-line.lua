@@ -8,38 +8,35 @@ gl.short_line_list = { " " }
 
 local mocha = require("catppuccin.palettes").get_palette "mocha"
 local latte = require("catppuccin.palettes").get_palette "latte"
+local frappe = require("catppuccin.palettes").get_palette "frappe"
 
---local mocha = {
-    --white = "#abb2bf",
-    --darker_black = "#1b1f27",
-    --black = "#1e222a", --  nvim bg
-    --black2 = "#252931",
-    --one_bg = "#282c34", -- real bg of onedark
-    --one_bg2 = "#353b45",
-    --one_bg3 = "#30343c",
-    --grey = "#42464e",
-    --grey_fg = "#565c64",
-    --grey_fg2 = "#6f737b",
-    --light_grey = "#6f737b",
-    --red = "#d47d85",
-    --baby_pink = "#DE8C92",
-    --pink = "#ff75a0",
-    --line = "#2a2e36", -- for lines like vertsplit
-    --green = "#A3BE8C",
-    --vibrant_green = "#7eca9c",
-    --nord_blue = "#81A1C1",
-    --blue = "#61afef",
-    --yellow = "#e7c787",
-    --sun = "#EBCB8B",
-    --purple = "#b4bbc8",
-    --dark_purple = "#c882e7",
-    --teal = "#519ABA",
-    --orange = "#fca2aa",
-    --cyan = "#a3b8ef",
-    --statusline_bg = "9ea7b7",
-    --lightbg = "#282E2C",
-    --lightbg2 = "#262a32"
---}
+local ICON = '📡'
+
+-- Returns a statusline-compatible string
+local function statusline()
+    -- Attempt to load the distant.nvim plugin
+    local ok, plugin = pcall(require, 'distant')
+
+    -- Check the following to see if we are in a remote buffer
+    --
+    -- 1. Can the plugin be found?
+    -- 2. Is the plugin initialized?
+    -- 3. Does the buffer have remote data associated?
+    --
+    -- If the answer to any of these questions is no, we return
+    -- an empty string to avoid putting anything in our statusline
+    if not ok or not plugin:is_initialized() or not plugin.buf.has_data() then
+        return ''
+    end
+
+    -- At this point, we know that we have a remote buffer,
+    -- and we want to look up what server is represented,
+    -- which we do by retrieving a destination table that
+    -- contains a host string we can include alongside
+    -- a custom emoji
+    local destination = assert(plugin:client_destination(plugin.buf.client_id()))
+    return ('%s %s'):format(ICON, destination.host)
+end
 
 gls.left[1] = {
     FirstElement = {
@@ -50,9 +47,10 @@ gls.left[1] = {
 
 gls.left[2] = {
     statusIcon = {
-        provider = function()
-            return "  "
-        end,
+        --provider = function()
+            --return "  "
+        --end,
+        provider = statusline,
         highlight = { latte.text, mocha.green },
         separator = " ",
         separator_highlight = { mocha.green, mocha.white }
@@ -63,19 +61,19 @@ gls.left[3] = {
     FileIcon = {
         provider = "FileIcon",
         condition = condition.buffer_not_empty,
-        highlight = { mocha.white, mocha.base }
+        highlight = { mocha.white, mocha.mantle }
     }
 }
 
---gls.left[4] = {
-    --FileName = {
-        --provider = { "FileName" },
-        --condition = condition.buffer_not_empty,
-        --highlight = { mocha.white, mocha.base },
-        --separator = " ",
-        --separator_highlight = { mocha.base, mocha.base }
-    --}
---}
+gls.left[4] = {
+    FileName = {
+        provider = { "FileName" },
+        condition = condition.buffer_not_empty,
+        highlight = { mocha.white, mocha.mantle },
+        separator = " ",
+        separator_highlight = { mocha.mantle, mocha.mantle }
+    }
+}
 
 gls.left[5] = {
     current_dir = {
@@ -83,11 +81,11 @@ gls.left[5] = {
             local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
             return " 󰉖 " .. dir_name .. " "
         end,
-        highlight = { mocha.white, mocha.base },
+        highlight = { mocha.white, mocha.mantle },
         separator = " ",
         --separator = " ",
-        separator_highlight = { mocha.red, mocha.white }
-        --separator_highlight = { mocha.base, mocha.base }
+        separator_highlight = { mocha.mantle, mocha.white }
+        --separator_highlight = { mocha.mantle, mocha.mantle }
     }
 }
 
@@ -104,7 +102,8 @@ gls.left[6] = {
         provider = "DiffAdd",
         condition = checkwidth,
         icon = "  ",
-        highlight = { mocha.white, mocha.statusline_bg }
+        --highlight = { mocha.white, frappe.base }
+        highlight = { frappe.grey_fg2, mocha.statusline_bg }
     }
 }
 
@@ -113,7 +112,7 @@ gls.left[7] = {
         provider = "DiffModified",
         condition = checkwidth,
         icon = "   ",
-        highlight = { mocha.grey_fg2, mocha.statusline_bg }
+        highlight = { frappe.grey_fg2, mocha.statusline_bg }
     }
 }
 
@@ -122,7 +121,7 @@ gls.left[8] = {
         provider = "DiffRemove",
         condition = checkwidth,
         icon = "  ",
-        highlight = { mocha.grey_fg2, mocha.statusline_bg }
+        highlight = { frappe.grey_fg2, mocha.statusline_bg }
     }
 }
 
@@ -136,7 +135,7 @@ gls.left[8] = {
 gls.left[10] = {
     Space = {
         provider = function() return ' ' end,
-        highlight = { mocha.grey_fg2, mocha.statusline_bg }
+        highlight = { frappe.grey_fg2, frappe.statusline_bg }
     }
 }
 
@@ -164,7 +163,7 @@ gls.right[1] = {
 gls.right[2] = {
     Space = {
         provider = function() return ' ' end,
-        highlight = { mocha.grey_fg2, mocha.statusline_bg }
+        highlight = { frappe.grey_fg2, frappe.statusline_bg }
     }
 }
 
@@ -174,9 +173,9 @@ gls.right[3] = {
             return "󰊢 "
         end,
         condition = require("galaxyline.provider_vcs").check_git_workspace,
-        highlight = { mocha.white, mocha.base },
+        highlight = { frappe.grey_fg2, mocha.statusline_bg },
         separator = "",
-        separator_highlight = { mocha.base, mocha.statusline_bg }
+        separator_highlight = { frappe.statusline_bg, frappe.statusline_bg }
     }
 }
 
@@ -184,7 +183,7 @@ gls.right[4] = {
     GitBranch = {
         provider = "GitBranch",
         condition = require("galaxyline.provider_vcs").check_git_workspace,
-        highlight = { mocha.white, mocha.statusline_bg }
+        hightlight = { mocha.mantle, mocha.white }
     }
 }
 

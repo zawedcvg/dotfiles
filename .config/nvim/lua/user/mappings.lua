@@ -83,24 +83,21 @@ Vmap("<C-Down>", "]egv")
 --git setup
 vim.api.nvim_set_keymap("n", "<leader>gs", ":Git<CR><C-w>x", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gc", ":Git commit<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>gk", ":diffget //2", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>gd", ":diffget //3", { noremap = true, silent = true })
+--vim.api.nvim_set_keymap("n", "<leader>gk", ":diffget //2", { noremap = true, silent = true })
+--vim.api.nvim_set_keymap("n", "<leader>gd", ":diffget //3", { noremap = true, silent = true })
 Nnoremap("]c", "]czz")
 Nnoremap("[c", "[czz")
 
 vim.api.nvim_set_keymap("n", "<leader>a", "<cmd>Trouble diagnostics toggle<CR>",
     { noremap = true, silent = true, nowait = true })
 
---buffer closing stuff
---vim.api.nvim_set_keymap("n", "<leader>bd", "<cmd>BufferLineCloseLeft<CR>", { noremap = true, silent = true })
---vim.api.nvim_set_keymap("n", "<leader>bl", "<cmd>BufferLineCloseRight<CR>", { noremap = true, silent = true })
 
 --handling mistypes
---Cmap("WQ", "wq")
---Cmap("Wq", "wq")
-----Cmap("W", "w")
---Cmap("Q", "q")
---Cmap("Qa", "qa")
+Cmap("WQ", "wq")
+Cmap("Wq", "wq")
+Cmap("W", "w")
+Cmap("Q", "q")
+Cmap("Qa", "qa")
 
 --Nnoremap(":W<CR>", ":w<CR>")
 
@@ -130,3 +127,16 @@ vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>sp<CR>:terminal<CR>:resize -10<C
 Nnoremap("<leader>os", "<cmd>ObsidianSearch<CR>")
 Nnoremap("<leader>od", "<cmd>ObsidianToday<CR>")
 Nnoremap("<leader>ot", "<cmd>ObsidianTags<CR>")
+
+
+-- Oil key bindings
+Nnoremap("-", "<cmd>Oil --float .<CR>")
+Nnoremap("_", "<cmd>Oil --float ..<CR>")
+
+-- Neogen keybinds
+Nnoremap("<Leader>nf", ":lua require('neogen').generate({ type = 'func' })<CR>")
+Nnoremap("<Leader>nc", ":lua require('neogen').generate({ type = 'class' })<CR>")
+
+Nnoremap("gD", "<cmd>Glance definitions<CR>")
+Nnoremap("gR", "<cmd>Glance references<CR>")
+

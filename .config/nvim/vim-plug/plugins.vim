@@ -3,7 +3,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 call plug#begin('~/.config/nvim/autoload/plugged')
-Plug 'amitds1997/remote-nvim.nvim',
 Plug 'MunifTanjim/nui.nvim'
 Plug 'rcarriga/nvim-notify'
 Plug 'folke/noice.nvim'
@@ -14,6 +13,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'master'}
 Plug 'tpope/vim-repeat'
@@ -32,8 +32,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'qxxxb/vim-searchhi'
 Plug 'lervag/vimtex', {'for': ['markdown']}
-Plug 'simrat39/symbols-outline.nvim'
-
+Plug 'hedyhli/outline.nvim'
 "For completion
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -41,7 +40,6 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
-Plug 'ray-x/lsp_signature.nvim'
 
 "for lsp
 Plug 'neovim/nvim-lspconfig'
@@ -65,7 +63,7 @@ Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'SmiteshP/nvim-navic' "for function name
 "illuminate
 Plug 'RRethy/vim-illuminate'
-Plug 'goerz/jupytext.vim'
+"Plug 'goerz/jupytext.vim'
 "Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 
 Plug 'catppuccin/nvim'
@@ -76,8 +74,7 @@ Plug 'p00f/clangd_extensions.nvim'
 Plug 'lewis6991/impatient.nvim'
 Plug 'folke/todo-comments.nvim'
 Plug 'sindrets/diffview.nvim'
-Plug 'chipsenkbeil/distant.nvim'
-Plug 'MeanderingProgrammer/markdown.nvim',
+Plug 'zawedcvg/distant.nvim'
 Plug 'b0o/incline.nvim'
 Plug 'nvim-neorg/neorg', {'tag': 'v7.0.0'}
 Plug 'dnlhc/glance.nvim'
@@ -85,4 +82,9 @@ Plug 'rebelot/kanagawa.nvim'
 Plug 'epwalsh/obsidian.nvim',
 Plug 'AlexvZyl/nordic.nvim', { 'branch': 'main' }
 Plug 'sho-87/kanagawa-paper.nvim',
+
+Plug 'stevearc/oil.nvim'
+Plug 'danymat/neogen'
+
+Plug 'OXY2DEV/markview.nvim'
 call plug#end()
