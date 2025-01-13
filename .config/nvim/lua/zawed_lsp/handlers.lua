@@ -15,7 +15,7 @@ M.setup = function()
 
     local config = {
         -- disable virtual text
-        virtual_text = {only_current_line=true},
+        virtual_text = { only_current_line = true },
         -- show signs
         signs = {
             active = signs,
@@ -45,13 +45,12 @@ M.setup = function()
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = {only_current_line=true},
-        underline = true,
-        update_in_insert = false,
-        signs = true,
-    }
+            virtual_text = { only_current_line = true },
+            underline = true,
+            update_in_insert = false,
+            signs = true,
+        }
     )
-
 end
 
 --function loca()
@@ -137,7 +136,6 @@ function global()
                         text = line,
                     })
                 end
-
             end
         end
 
@@ -175,7 +173,7 @@ local function lsp_keymaps(bufnr)
     )
     vim.api.nvim_buf_set_keymap(bufnr, "n", "]g", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+    --vim.cmd [[ command! Format execute 'lua require('conform').format())' ]]
 end
 
 M.on_attach = function(client, bufnr)
@@ -183,11 +181,11 @@ M.on_attach = function(client, bufnr)
     -- TODO: refactor this into a method that checks if string in list
 
     --if client.name == "tsserver" then
-        --client.resolved_capabilities.document_formatting = false
+    --client.resolved_capabilities.document_formatting = false
     --end
     --if client.name == "clangd" then
-        ----client.resolved_capabilities.document_formatting = false
-        ----client.resolved_capabilities.offsetEncoding = {"utf-16"}
+    ----client.resolved_capabilities.document_formatting = false
+    ----client.resolved_capabilities.offsetEncoding = {"utf-16"}
     --end
     lsp_keymaps(bufnr)
     lsp_highlight_document(client)

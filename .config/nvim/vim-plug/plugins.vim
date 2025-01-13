@@ -47,7 +47,8 @@ Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'j-hui/fidget.nvim'
 Plug 'folke/trouble.nvim'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+"Plug 'jose-elias-alvarez/Plug 'stevearc/conform.nvim'null-ls.nvim'
+Plug 'stevearc/conform.nvim'
 
 "colorscheme
 Plug 'sainnhe/everforest'

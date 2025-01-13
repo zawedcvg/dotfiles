@@ -1,6 +1,6 @@
 local status_ok1, mason = pcall(require, "mason")
 local status_ok, lsp_installer = pcall(require, "mason-lspconfig")
-local status_ok2, null_ls = pcall(require, "null-ls")
+--local status_ok2, null_ls = pcall(require, "null-ls")
 
 local navic = require("nvim-navic")
 if not status_ok then
@@ -12,19 +12,7 @@ local on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
 end
 
-local formatting = null_ls.builtins.formatting
-
-null_ls.setup({
-    --on_init = function(new_client, _)
-    --new_client.offset_encoding = 'utf-32'
-    --end,
-    --sources = {
-    --formatting.clang_format.with({
-    --extra_args = { "--style", "{IndentWidth: 4 ,ColumnLimit: 120}" },
-    --}),
-    --}
-})
-
+--local formatting = null_ls.builtins.formatting
 
 local lspconfig = require("lspconfig")
 

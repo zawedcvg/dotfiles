@@ -137,6 +137,12 @@ Nnoremap("_", "<cmd>Oil --float ..<CR>")
 Nnoremap("<Leader>nf", ":lua require('neogen').generate({ type = 'func' })<CR>")
 Nnoremap("<Leader>nc", ":lua require('neogen').generate({ type = 'class' })<CR>")
 
+--Glance keybinds
 Nnoremap("gD", "<cmd>Glance definitions<CR>")
 Nnoremap("gR", "<cmd>Glance references<CR>")
 
+--symbols outline
+Nnoremap("<Leader>s", "<cmd>Outline!<CR>")
+
+
+Nnoremap("<leader><leader>f", ":lua require('conform').format()<CR>")
