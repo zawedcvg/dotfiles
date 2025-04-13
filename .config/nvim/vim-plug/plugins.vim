@@ -11,7 +11,7 @@ Plug 'dstein64/vim-startuptime'
 Plug 'tpope/vim-surround'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'raimondi/delimitmate'
-Plug 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdcommenter'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
@@ -88,4 +88,9 @@ Plug 'stevearc/oil.nvim'
 Plug 'danymat/neogen'
 
 Plug 'OXY2DEV/markview.nvim'
+Plug 'numToStr/Comment.nvim'
+Plug 'stevearc/dressing.nvim'
+Plug '3rd/image.nvim'
+Plug 'jbyuki/nabla.nvim'
+
 call plug#end()

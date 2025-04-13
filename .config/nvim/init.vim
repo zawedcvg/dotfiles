@@ -1,6 +1,7 @@
 "lua require('impatient')
 runtime! plugin/rplugin.vim
 source $HOME/.config/nvim/vim-plug/plugins.vim
+" set nowrap
 lua require('impatient')
 lua require("user")
 lua require("zawed_lsp")
@@ -8,6 +9,8 @@ lua require("zawed_plugin")
 autocmd BufNewFile,BufRead *.h set ft=cpp
 syntax on
 set noshowmode "for preventing the show of modes
+
+"TODO: Make it so that conform's logic is used for indentation and stuff
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 nnoremap <Tab> gt
@@ -333,7 +336,10 @@ require("noice").setup({
       ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
     },
     signature = {
-        enabled = false
+        enabled = true,
+        auto_open = {
+            enabled = false,
+            }
         }
   },
   cmdline = {
@@ -362,9 +368,11 @@ require("obsidian").setup({
   workspaces = {
     {
       name = "vault",
-      path = "~/Final Vault",
+      path = "~/stuff",
     },
   },
+
+ui = { enable = false },
   daily_notes = {
     -- Optional, if you keep daily notes in a separate directory.
     folder = "daily-notes",
@@ -374,7 +382,7 @@ require("obsidian").setup({
     -- Optional, default tags to add to each new daily note created.
     default_tags = { "daily-notes" },
     -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-    template = "~/Final Vault/templates/daily",
+    template = "~/stuff/templates/daily",
   },
       templates = {
           folder = "templates",
@@ -441,4 +449,123 @@ require("conform").setup({
     -- Conform will run the first available formatter
     javascript = { "prettierd", "prettier", stop_after_first = true },
   },
+})
+
+require('Comment').setup({
+    ---Add a space b/w comment and the line
+    padding = true,
+    ---Whether the cursor should stay at its position
+    sticky = true,
+    ---Lines to be ignored while (un)comment
+    ignore = nil,
+    ---LHS of toggle mappings in NORMAL mode
+    toggler = {
+        ---Line-comment toggle keymap
+        line = '<leader>cc',
+        ---Block-comment toggle keymap
+        block = '<leader>bc',
+    },
+    ---LHS of operator-pending mappings in NORMAL and VISUAL mode
+    opleader = {
+        ---Line-comment keymap
+        line = '<leader>cc',
+        ---Block-comment keymap
+        block = '<leader>bc',
+    },
+    ---LHS of extra mappings
+    extra = {
+        ---Add comment on the line above
+        above = '<leader>cO',
+        ---Add comment on the line below
+        below = '<leader>co',
+        ---Add comment at the end of line
+        eol = '<leader>cA',
+    },
+    ---Enable keybindings
+    ---NOTE: If given `false` then the plugin won't create any mappings
+    mappings = {
+        ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
+        basic = true,
+        ---Extra mapping; `gco`, `gcO`, `gcA`
+        extra = true,
+    },
+    ---Function to call before (un)comment
+    pre_hook = nil,
+    ---Function to call after (un)comment
+    post_hook = nil,
+})
+
+require("image").setup({
+  backend = "kitty",
+  processor = "magick_cli", -- or "magick_cli"
+  integrations = {
+    markdown = {
+      enabled = true,
+      clear_in_insert_mode = false,
+      download_remote_images = true,
+      only_render_image_at_cursor = false,
+      floating_windows = false, -- if true, images will be rendered in floating markdown windows
+      filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+      resolve_image_path = function(document_path, image_path, fallback)
+        local assets_dir = vim.fn.expand("~/stuff/Attachments") -- not the path to vault, but to the assets dir
+
+        -- Check if the image_path is already an absolute path
+        if image_path:match("^/") then
+            -- If it's an absolute path, leave it unchanged
+            return image_path
+        end
+
+        -- Construct the new image path by prepending the Assets directory
+        local new_image_path = assets_dir .. "/" .. image_path
+
+        -- Check if the constructed path exists
+        if vim.fn.filereadable(new_image_path) == 1 then
+            return new_image_path
+        else
+            -- If the file doesn't exist in Assets, fallback to default behavior
+            return fallback(document_path, image_path)
+        end
+    end,
+    },
+    neorg = {
+      enabled = true,
+      filetypes = { "norg" },
+    },
+    typst = {
+      enabled = true,
+      filetypes = { "typst" },
+    },
+    html = {
+      enabled = false,
+    },
+    css = {
+      enabled = false,
+    },
+  },
+  max_width = nil,
+  max_height = nil,
+  max_width_window_percentage = nil,
+  max_height_window_percentage = 50,
+  window_overlap_clear_enabled = true, -- toggles images when windows are overlapped
+  window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "snacks_notif", "scrollview", "scrollview_sign" },
+  editor_only_render_when_focused = false, -- auto show/hide images when the editor gains/looses focus
+  tmux_show_only_in_active_window = false, -- auto show/hide images in the correct Tmux window (needs visual-activity off)
+  hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- render image files as images when opened
+})
+
+require("markview").setup({
+    latex = {
+        enable=false
+    },
+    preview = {
+      callbacks = {
+        on_enable = function (_, win)
+      vim.wo[win].conceallevel = 2;
+      -- This will prevent Tree-sitter concealment being disabled on the cmdline mode
+      vim.wo[win].concealcursor = "c";
+    end
+      },
+      hybrid_modes = { "i", "n" },
+      modes = { "n", "c", "i" }
+    },
 })
