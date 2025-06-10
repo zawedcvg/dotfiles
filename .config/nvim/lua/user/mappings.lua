@@ -149,11 +149,11 @@ Nnoremap("<Leader>s", "<cmd>Outline!<CR>")
 Nnoremap("<leader><leader>f", "<cmd>lua require('conform').format()<CR>")
 
 
-local api = require('Comment.api')
-local config = require('Comment.config'):get()
-
-Nnoremap("<leader>cu", "<cmd>lua require('Comment.api').uncomment.linewise.current()<CR>")
-Vmap("<leader>cu", "<cmd>lua require('Comment.api').uncomment.linewise.current()<CR>")
+-- local api = require('Comment.api')
+-- local config = require('Comment.config'):get()
+--
+-- Nnoremap("<leader>cu", "<cmd>lua require('Comment.api').uncomment.linewise.current()<CR>")
+-- Vmap("<leader>cu", "<cmd>lua require('Comment.api').uncomment.linewise.current()<CR>")
 
 
 Nnoremap("<leader>p", "<cmd>lua require('nabla').toggle_virt()<CR>") -- Customize with popup({border = ...})  : `single` (default), `double`, `rounded`)

@@ -57,7 +57,6 @@ vim.g['do_filetype_lua'] = 1
 --for colorscheme
 --vim.g['everforest_background'] = 'medium'
 --vim.g['everforest_enable_italic'] = 1
-vim.cmd("colorscheme catppuccin-macchiato")
 --vim.g['everforest_background'] = 'medium'
 --vim.g['everforest_enable_italic'] = 1
 --vim.cmd("colorscheme everforest")

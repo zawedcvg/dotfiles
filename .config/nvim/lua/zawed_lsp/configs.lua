@@ -16,7 +16,8 @@ end
 
 local lspconfig = require("lspconfig")
 
-local servers = { "jsonls", "pyright", "ts_ls"}
+local servers = { "jsonls", "pyright", "ts_ls", "clangd"}
+-- local servers = { "jsonls", "ts_ls"}
 
 mason.setup {
     ui = {
@@ -54,7 +55,6 @@ capabilities = require("zawed_lsp.handlers").capabilities,
     },
   },
 }
-
 
 -- rust-tools config: https://github.com/simrat39/rust-tools.nvim
 -- @TODOUA: selects on *abbles require manual close with no select

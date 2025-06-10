@@ -120,11 +120,8 @@ function global()
 
         if method.documentChanges then
             for _, doc_edits in ipairs(method.documentChanges) do
-                print(vim.inspect(doc_edits))
                 edits = doc_edits["edits"]
                 text_doc = doc_edits["textDocument"]
-                print(vim.inspect(edits))
-                print(vim.inspect(text_doc))
                 local bufnr = vim.uri_to_bufnr(text_doc.uri)
                 for _, edit in ipairs(edits) do
                     local start_line = edit.range.start.line + 1
@@ -139,7 +136,6 @@ function global()
             end
         end
 
-        print(vim.inspect(entries))
         vim.fn.setqflist(entries, "r")
     end)
 end
@@ -159,7 +155,7 @@ end
 
 local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
-    --vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
@@ -194,11 +190,11 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
-    return
-end
+-- local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+-- if not status_ok then
+--     return
+-- end
 
-M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+-- M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 return M
