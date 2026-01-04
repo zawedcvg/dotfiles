@@ -7,7 +7,44 @@ return {
 	-- UI Enhancements
 	{ "MunifTanjim/nui.nvim" },
 	{ "rcarriga/nvim-notify" },
-	{ "folke/noice.nvim", dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } },
+	{
+		"folke/noice.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+		opts = {
+			lsp = {
+				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+				override = {
+					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+					["vim.lsp.util.stylize_markdown"] = true,
+					--     ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+				},
+				signature = {
+					enabled = true,
+					auto_open = {
+						enabled = false,
+					},
+				},
+			},
+			cmdline = {
+				enabled = true,
+				--view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+			},
+			-- you can enable a preset for easier configuration
+			presets = {
+				bottom_search = false, -- use a classic bottom cmdline for search
+				command_palette = true, -- position the cmdline and popupmenu together
+				long_message_to_split = true, -- long messages will be sent to a split
+				inc_rename = false, -- enables an input dialog for inc-rename.nvim
+				lsp_doc_border = true, -- add a border to hover docs and signature help
+			},
+			routes = {
+				{
+					view = "notify",
+					filter = { event = "msg_showmode" },
+				},
+			},
+		},
+	},
 	{ "folke/which-key.nvim" },
 	{ "b0o/incline.nvim" },
 	{ "stevearc/dressing.nvim" },
@@ -145,16 +182,179 @@ return {
 		},
 		opts_extend = { "sources.default" },
 	},
+
 	{ "L3MON4D3/LuaSnip", opts = {} },
 
 	-- LSP
+	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy",
+		priority = 1000,
+		config = function()
+			require("tiny-inline-diagnostic").setup()
+
+			vim.diagnostic.config({
+				virtual_text = false, -- Often set to false to avoid clutter, but can be true
+				float = false,
+				signs = {
+					enable = true, -- Ensure signs are enabled
+					text = {
+						-- Define icons for each severity level
+						[vim.diagnostic.severity.ERROR] = " ", -- Example: Error (Unicode)
+						[vim.diagnostic.severity.WARN] = " ", -- Example: Warning
+						[vim.diagnostic.severity.HINT] = " ", -- Example: Hint
+						[vim.diagnostic.severity.INFO] = " ", -- Example: Information
+					},
+				},
+			})
+		end,
+	},
 	{ "neovim/nvim-lspconfig" },
 	-- { "microsoft/python-type-stubs" },
-	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
+	{ "mason-org/mason.nvim" },
+	{
+		"mason-org/mason-lspconfig.nvim",
+	},
 	{ "j-hui/fidget.nvim" },
-	{ "folke/trouble.nvim" },
-	{ "stevearc/conform.nvim" },
+	{
+		"folke/trouble.nvim",
+		opts = {}, -- for default options, refer to the configuration section for custom setup.
+		cmd = "Trouble",
+	},
+	-- dap setup
+	{ "rcarriga/nvim-dap-ui", enabled = false },
+	{
+		"miroshQa/debugmaster.nvim",
+		-- osv is needed if you want to debug neovim lua code. Also can be used
+		-- as a way to quickly test-drive the plugin without configuring debug adapters
+		dependencies = { "mfussenegger/nvim-dap", "jbyuki/one-small-step-for-vimkind" },
+		config = function()
+			local dm = require("debugmaster")
+			-- make sure you don't have any other keymaps that starts with "<leader>d" to avoid delay
+			-- Alternative keybindings to "<leader>d" could be: "<leader>m", "<leader>;"
+			vim.keymap.set({ "n", "v" }, "<leader>d", dm.mode.toggle, { nowait = true })
+			-- If you want to disable debug mode in addition to leader+d using the Escape key:
+			-- vim.keymap.set("n", "<Esc>", dm.mode.disable)
+			-- This might be unwanted if you already use Esc for ":noh"
+			vim.keymap.set("t", "<C-\\>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+			dm.plugins.osv_integration.enabled = true -- needed if you want to debug neovim lua code
+			local dap = require("dap")
+			-- Configure your debug adapters here
+			-- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
+
+			dap.adapters.python = function(cb, config)
+				if config.request == "attach" then
+					---@diagnostic disable-next-line: undefined-field
+					local port = (config.connect or config).port
+					---@diagnostic disable-next-line: undefined-field
+					local host = (config.connect or config).host or "127.0.0.1"
+					cb({
+						type = "server",
+						port = assert(port, "`connect.port` is required for a python `attach` configuration"),
+						host = host,
+						options = {
+							source_filetype = "python",
+						},
+					})
+				else
+					cb({
+						type = "executable",
+						command = "/home/neeladri/.virtualenvs/debugpy/bin/python",
+						args = { "-m", "debugpy.adapter" },
+						options = {
+							source_filetype = "python",
+						},
+					})
+				end
+			end
+			dap.configurations.python = {
+				{
+					-- The first three options are required by nvim-dap
+					type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
+					request = "launch",
+					name = "Launch file",
+
+					-- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
+
+					program = "${file}", -- This configuration will launch the current file if used.
+					pythonPath = function()
+						-- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+						-- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
+						-- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+						local cwd = vim.fn.getcwd()
+						if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+							return cwd .. "/venv/bin/python"
+						elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+							return cwd .. "/.venv/bin/python"
+						else
+							return "/usr/bin/python"
+						end
+					end,
+				},
+			}
+			dap.adapters["rust-gdb"] = {
+				type = "executable",
+				command = "rust-gdb",
+				args = { "--interpreter=dap", "--eval-command", "set print pretty on" },
+			}
+			dap.configurations.rust = {
+				{
+					name = "Launch",
+					type = "rust-gdb",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+					args = {}, -- provide arguments if needed
+					cwd = "${workspaceFolder}",
+					stopAtBeginningOfMainSubprogram = false,
+				},
+				{
+					name = "Select and attach to process",
+					type = "rust-gdb",
+					request = "attach",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+					pid = function()
+						local name = vim.fn.input("Executable name (filter): ")
+						return require("dap.utils").pick_process({ filter = name })
+					end,
+					cwd = "${workspaceFolder}",
+				},
+				{
+					name = "Attach to gdbserver :1234",
+					type = "rust-gdb",
+					request = "attach",
+					target = "localhost:1234",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+					cwd = "${workspaceFolder}",
+				},
+			}
+		end,
+	},
+	-- { "mfussenegger/nvim-dap-python", enabled = true },
+	{
+		"stevearc/conform.nvim",
+		opts = {
+			format_on_save = {
+				lsp_fallback = true,
+				timeout_ms = 100,
+			},
+			formatters_by_ft = {
+				lua = { "stylua" },
+				-- Conform will run multiple formatters sequentially
+				-- You can customize some of the format options for the filetype (:help conform.format)
+				rust = { "rustfmt", lsp_format = "fallback" },
+				python = { "ruff", "isort" },
+				-- Conform will run the first available formatter
+				javascript = { "prettierd", "prettier", stop_after_first = true },
+			},
+		},
+	},
 	{
 		"mfussenegger/nvim-lint",
 		config = function()
@@ -173,7 +373,25 @@ return {
 
 	-- Writing Tools
 	{ "junegunn/goyo.vim", cmd = "Goyo" },
-	{ "OXY2DEV/markview.nvim" },
+	{
+		"OXY2DEV/markview.nvim",
+		opts = {
+			latex = {
+				enable = false,
+			},
+			preview = {
+				callbacks = {
+					on_enable = function(_, win)
+						vim.wo[win].conceallevel = 2
+						-- This will prevent Tree-sitter concealment being disabled on the cmdline mode
+						vim.wo[win].concealcursor = "c"
+					end,
+				},
+				hybrid_modes = { "i", "n" },
+				modes = { "n", "c", "i" },
+			},
+		},
+	},
 	{ "epwalsh/obsidian.nvim" },
 	-- { "3rd/image.nvim" },
 	--
@@ -195,14 +413,38 @@ return {
 	{ "nvim-neorg/neorg", tag = "v7.0.0" },
 
 	-- Utilities
-	{ "hedyhli/outline.nvim" },
+	{
+		"hedyhli/outline.nvim",
+		config = function()
+			-- Example mapping to toggle outline
+			vim.keymap.set("n", "<leader>s", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
+
+			require("outline").setup({
+				-- Your setup opts here (leave empty to use defaults)
+			})
+		end,
+	},
+
 	{ "tyru/open-browser.vim" },
 	{ "zawedcvg/distant.nvim" },
-	{ "stevearc/oil.nvim" },
-	{ "danymat/neogen" },
+	{
+		"stevearc/oil.nvim",
+		---@module 'oil'
+		opts = {},
+		dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+		lazy = false,
+	},
+	{ "danymat/neogen", opts = { snippet_engine = "luasnip" } },
 	{ "qxxxb/vim-searchhi" },
-	{ "folke/todo-comments.nvim" },
-
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+	},
 	--- Debugger
 	{
 		"mfussenegger/nvim-dap",
@@ -242,5 +484,19 @@ return {
 				desc = "Terminate",
 			},
 		},
+	},
+	{
+		"greggh/claude-code.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- Required for git operations
+		},
+		config = function()
+			require("claude-code").setup({
+				window = {
+					split_ratio = 0.3,
+					position = "vertical",
+				},
+			})
+		end,
 	},
 }

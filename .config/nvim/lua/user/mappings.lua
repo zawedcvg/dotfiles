@@ -4,15 +4,16 @@ vim.g.mapleader = " "
 
 -- creating the basic functions to ease
 function CreateRemap(type, opts)
-    return function(lhs, rhs)
-        vim.api.nvim_set_keymap(type, lhs, rhs, opts) end
+	return function(lhs, rhs)
+		vim.api.nvim_set_keymap(type, lhs, rhs, opts)
+	end
 end
 
 Nnoremap = CreateRemap("n", { noremap = true })
 Xnoremap = CreateRemap("x", { noremap = true })
 Vmap = CreateRemap("v", {})
 Nmap = CreateRemap("n", {})
-Cmap = CreateRemap("c", {noremap=true})
+Cmap = CreateRemap("c", { noremap = true })
 Tnoremap = CreateRemap("t", { noremap = true })
 
 --making additional mapping
@@ -45,7 +46,7 @@ vim.api.nvim_set_keymap("n", "S", "s$", {})
 --for markdown preview
 vim.api.nvim_set_keymap("n", "<C-p>", "<Plug>(MarkdownPreviewToggle)", {})
 
-Xnoremap("<leader>p", "\"_dP")
+Xnoremap("<leader>p", '"_dP')
 
 --Shortcutting navigation in split view"
 Nnoremap("<C-h>", "<C-w>h")
@@ -64,7 +65,6 @@ Nnoremap("m", "d")
 Xnoremap("m", "d")
 Nnoremap("mm", "dd")
 Nnoremap("M", "D")
-
 
 --unimpaired stuff
 Nnoremap("]q", "<cmd>cnext<CR>")
@@ -88,9 +88,12 @@ vim.api.nvim_set_keymap("n", "<leader>gc", ":Git commit<CR>", { noremap = true, 
 Nnoremap("]c", "]czz")
 Nnoremap("[c", "[czz")
 
-vim.api.nvim_set_keymap("n", "<leader>a", "<cmd>Trouble diagnostics toggle<CR>",
-    { noremap = true, silent = true, nowait = true })
-
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>a",
+	"<cmd>Trouble diagnostics toggle<CR>",
+	{ noremap = true, silent = true, nowait = true }
+)
 
 --handling mistypes
 Cmap("WQ", "wq")
@@ -101,10 +104,18 @@ Cmap("Qa", "qa")
 
 --Nnoremap(":W<CR>", ":w<CR>")
 
-vim.api.nvim_set_keymap("n", "<leader>fj", "<cmd>Telescope jumplist<CR>",
-    { noremap = true, silent = true, nowait = true })
-vim.api.nvim_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>",
-    { noremap = true, silent = true, nowait = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fj",
+	"<cmd>Telescope jumplist<CR>",
+	{ noremap = true, silent = true, nowait = true }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"gr",
+	"<cmd>Telescope lsp_references<CR>",
+	{ noremap = true, silent = true, nowait = true }
+)
 
 --terminal things
 Tnoremap("<Esc>", "<C-\\><C-n>")
@@ -114,21 +125,19 @@ Tnoremap("<C-j>", "<C-\\><C-n><C-w>j")
 Tnoremap("<C-k>", "<C-\\><C-n><C-w>k")
 Tnoremap("<C-l>", "<C-\\><C-n><C-w>l")
 --Tnoremap("<C-w>", "<C-\\><C-n><C-w>w")
-vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>sp<CR>:terminal<CR>:resize -10<CR>a", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>sp<CR>:terminal<CR>:resize -10<CR>a", { noremap = true, silent = true })
 --vim.keymap.set(
-  --"",
-  --"<Leader>l",
-  --require("lsp_lines").toggle,
-  --{ desc = "Toggle lsp_lines" }
+--"",
+--"<Leader>l",
+--require("lsp_lines").toggle,
+--{ desc = "Toggle lsp_lines" }
 --)
-
 
 -- Obsidian Mappings
 Nnoremap("<leader>os", "<cmd>ObsidianSearch<CR>")
 Nnoremap("<leader>od", "<cmd>ObsidianToday<CR>")
 Nnoremap("<leader>ot", "<cmd>ObsidianTags<CR>")
 Nnoremap("<leader>oc", "<cmd>ObsidianTOC<CR>")
-
 
 -- Oil key bindings
 Nnoremap("-", "<cmd>Oil --float .<CR>")
@@ -142,12 +151,7 @@ Nnoremap("<Leader>nc", ":lua require('neogen').generate({ type = 'class' })<CR>"
 Nnoremap("gD", "<cmd>Glance definitions<CR>")
 Nnoremap("gR", "<cmd>Glance references<CR>")
 
---symbols outline
-Nnoremap("<Leader>s", "<cmd>Outline!<CR>")
-
-
 Nnoremap("<leader><leader>f", "<cmd>lua require('conform').format()<CR>")
-
 
 -- local api = require('Comment.api')
 -- local config = require('Comment.config'):get()
@@ -155,7 +159,7 @@ Nnoremap("<leader><leader>f", "<cmd>lua require('conform').format()<CR>")
 -- Nnoremap("<leader>cu", "<cmd>lua require('Comment.api').uncomment.linewise.current()<CR>")
 -- Vmap("<leader>cu", "<cmd>lua require('Comment.api').uncomment.linewise.current()<CR>")
 
-
+Nnoremap("<leader><leader>c", "<cmd>ClaudeCode<CR>")
 Nnoremap("<leader>p", "<cmd>lua require('nabla').toggle_virt()<CR>") -- Customize with popup({border = ...})  : `single` (default), `double`, `rounded`)
 
 -- api.uncomment.linewise(motion, config?)

@@ -143,9 +143,6 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 
 lua << EOF
---require("symbols-outline").setup()
---require('colorful-winsep').setup({})
-require("outline").setup({})
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {"norg"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     highlight = {
@@ -159,16 +156,11 @@ require('distant'):setup {
     }
 
 }
-require("which-key").setup()
-require("nvim-ts-autotag").setup()
+
 signature_cfg = {
     hint_enable = false,
 }
 
-require("todo-comments").setup()
-require("fidget").setup()
-require("trouble").setup {
-}
 require('luatab').setup{
     windowCount = function() return '' end,
 }
@@ -191,30 +183,6 @@ local function get_diagnostic_label(props)
   return label
 end
 
---require("incline").setup({
-  --debounce_threshold = { falling = 500, rising = 250 },
-  --render = function(props)
-    --local bufname = vim.api.nvim_buf_get_name(props.buf)
-    --local filename = vim.fn.fnamemodify(bufname, ":t")
-    --local diagnostics = get_diagnostic_label(props)
-    --local modified = vim.api.nvim_buf_get_option(props.buf, "modified") and "bold,italic" or "None"
-    --local filetype_icon, color = require("nvim-web-devicons").get_icon_color(filename)
---
-    --local buffer = {
-        --{ filetype_icon, guifg = color },
-        --{ " " },
-        --{ filename, gui = modified },
-    --}
---
-    --if #diagnostics > 0 then
-        --table.insert(diagnostics, { "| ", guifg = "grey" })
-    --end
-    --for _, buffer_ in ipairs(buffer) do
-        --table.insert(diagnostics, buffer_)
-    --end
-    --return diagnostics
-  --end,
---})
 local function get_git_diff()
   local icons = { removed = "", changed = "",added = "" }
   local labels = {}
@@ -231,36 +199,6 @@ local function get_git_diff()
   end
   return labels
 end
-require('neorg').setup {
-    load = {
-        ["core.defaults"] = {}, -- Loads default behaviour
-        ["core.concealer"] = {}, -- Adds pretty icons to your documents
-        ["core.export"] = {}, -- exporting?
-        ["core.export.markdown"] = {
-            config = {
-                extensions = "all",
-                },
-        },
-        ["core.dirman"] = { -- Manages Neorg workspaces
-            config = {
-                workspaces = {
-                    notes = "~/notes",
-                    todo = "~/todo",
-                    finals = "~/finals_prep",
-                    projects = "~/projects",
-                    fyp = "~/projects/fyp",
-                    lecture_notes = "~/lecture_notes",
-                    papers = "~/lecture_notes",
-                },
-            },
-        },
-        ["core.keybinds"] = {
-            config = {
-                neorg_leader = "/",
-            }
-        }
-    },
-}
 
 local glance = require('glance')
 local actions = glance.actions
@@ -327,42 +265,6 @@ glance.setup({
   winbar = {
     enable = true, -- Available strating from nvim-0.8+
   },
-})
-
-
-require("noice").setup({
-  lsp = {
-    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-    override = {
-      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-      ["vim.lsp.util.stylize_markdown"] = true,
---     ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-    },
-    signature = {
-        enabled = true,
-        auto_open = {
-            enabled = false,
-            }
-        }
-  },
-  cmdline = {
-      enabled=true,
-      --view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
-  },
-  -- you can enable a preset for easier configuration
-  presets = {
-    bottom_search = false, -- use a classic bottom cmdline for search
-    command_palette = true, -- position the cmdline and popupmenu together
-    long_message_to_split = true, -- long messages will be sent to a split
-    inc_rename = false, -- enables an input dialog for inc-rename.nvim
-    lsp_doc_border = true, -- add a border to hover docs and signature help
-  },
-    routes = {
-        {
-            view = "notify",
-            filter = { event = "msg_showmode" },
-        },
-    },
 })
 
 
@@ -440,20 +342,6 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
-require("oil").setup()
-require('neogen').setup({snippet_engine="luasnip"})
-require("conform").setup({
-  formatters_by_ft = {
-    lua = { "stylua" },
-    -- Conform will run multiple formatters sequentially
-    -- python = {"ruff" "isort", "black" },
-    python = {"ruff", "isort", "black"},
-    -- You can customize some of the format options for the filetype (:help conform.format)
-    rust = { "rustfmt", lsp_format = "fallback" },
-    -- Conform will run the first available formatter
-    javascript = { "prettierd", "prettier", stop_after_first = true },
-  },
-})
 
 require('Comment').setup({
     ---Add a space b/w comment and the line
@@ -556,26 +444,13 @@ require('Comment').setup({
   --tmux_show_only_in_active_window = false, -- auto show/hide images in the correct Tmux window (needs visual-activity off)
   --hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- render image files as images when opened
 --})
+
+vim.cmd("colorscheme catppuccin-macchiato")
+
 local presets = require("markview.presets");
 
 require("markview").setup({
-    latex = {
-        enable=false
-    },
     markdown = {
         headings = presets.headings.glow
-    },
-    preview = {
-      callbacks = {
-        on_enable = function (_, win)
-      vim.wo[win].conceallevel = 2;
-      -- This will prevent Tree-sitter concealment being disabled on the cmdline mode
-      vim.wo[win].concealcursor = "c";
-    end
-      },
-      hybrid_modes = { "i", "n" },
-      modes = { "n", "c", "i" }
-    },
-})
-
-vim.cmd("colorscheme catppuccin-macchiato")
+    }
+});
