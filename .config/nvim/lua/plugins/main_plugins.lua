@@ -410,7 +410,7 @@ return {
 	{ "jbyuki/nabla.nvim" },
 
 	-- Notes and Structure
-	{ "nvim-neorg/neorg", tag = "v7.0.0" },
+	-- { "nvim-neorg/neorg", tag = "v7.0.0" },
 
 	-- Utilities
 	{
