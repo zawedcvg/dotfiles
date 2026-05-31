@@ -269,43 +269,43 @@ glance.setup({
 
 
 
-require("obsidian").setup({
-  workspaces = {
-    {
-      name = "vault",
-      path = "~/stuff",
-    },
-  },
-
-ui = { enable = false },
-  daily_notes = {
-    -- Optional, if you keep daily notes in a separate directory.
-    folder = "daily-notes",
-    -- Optional, if you want to change the date format for the ID of daily notes.
-    date_format = "%Y-%m-%d",
-    alias_format = "%B %-d, %Y",
-    -- Optional, default tags to add to each new daily note created.
-    default_tags = { "daily-notes" },
-    -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-    template = "~/stuff/templates/daily",
-  },
-      templates = {
-          folder = "templates",
-          date_format = "%Y-%m-%d-%a",
-          time_format = "%H:%M",
-      },
-
-  -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
-  -- URL it will be ignored but you can customize this behavior here.
-  ---@param url string
-  follow_url_func = function(url)
-    -- Open the URL in the default web browser.
-    --vim.fn.jobstart({"xdg-open", url})  -- linux
-    -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
-     vim.ui.open(url) -- need Neovim 0.10.0+
-  end,
-  })
-
+--require("obsidian").setup({
+  --workspaces = {
+    --{
+      --name = "vault",
+      --path = "~/stuff",
+    --},
+  --},
+--
+--ui = { enable = false },
+  --daily_notes = {
+    ---- Optional, if you keep daily notes in a separate directory.
+    --folder = "daily-notes",
+    ---- Optional, if you want to change the date format for the ID of daily notes.
+    --date_format = "%Y-%m-%d",
+    --alias_format = "%B %-d, %Y",
+    ---- Optional, default tags to add to each new daily note created.
+    --default_tags = { "daily-notes" },
+    ---- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+    --template = "~/stuff/templates/daily",
+  --},
+      --templates = {
+          --folder = "templates",
+          --date_format = "%Y-%m-%d-%a",
+          --time_format = "%H:%M",
+      --},
+--
+  ---- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
+  ---- URL it will be ignored but you can customize this behavior here.
+  -----@param url string
+  --follow_url_func = function(url)
+    ---- Open the URL in the default web browser.
+    ----vim.fn.jobstart({"xdg-open", url})  -- linux
+    ---- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+     --vim.ui.open(url) -- need Neovim 0.10.0+
+  --end,
+  --})
+--
 require'nvim-treesitter.configs'.setup {
   textobjects = {
     select = {
@@ -447,10 +447,3 @@ require('Comment').setup({
 
 vim.cmd("colorscheme catppuccin-macchiato")
 
-local presets = require("markview.presets");
-
-require("markview").setup({
-    markdown = {
-        headings = presets.headings.glow
-    }
-});

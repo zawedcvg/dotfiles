@@ -1,25 +1,13 @@
 local status_ok1, mason = pcall(require, "mason")
-local status_ok, lsp_installer = pcall(require, "mason-lspconfig")
---local status_ok2, null_ls = pcall(require, "null-ls")
-
-local navic = require("nvim-navic")
-if not status_ok then
+if not status_ok1 then
 	return
 end
 
 local on_attach = function(client, bufnr)
 	require("zawed_lsp.handlers").on_attach(client, bufnr)
-	navic.attach(client, bufnr)
 end
 
---local formatting = null_ls.builtins.formatting
-
-local lspconfig = require("lspconfig")
-
-local servers = { "jsonls", "ts_ls", "clangd" }
--- local servers = { "jsonls", "ts_ls"}
---
-
+-- Mason still handles installing servers
 mason.setup({
 	ui = {
 		icons = {
@@ -28,28 +16,29 @@ mason.setup({
 	},
 })
 
-lsp_installer.setup({
-	ensure_installed = servers,
-	automatic_installation = false,
-	automatic_setup = false,
-	automatic_enable = false,
-	handlers = {
-		-- Default handler for servers in the 'servers' list
-		function(server_name)
-			local opts = {
-				on_attach = on_attach,
-				capabilities = require("zawed_lsp.handlers").capabilities,
-			}
-			lspconfig[server_name].setup(opts)
-		end,
-		-- Explicitly disable automatic setup for pyright (we configure it manually below)
-		["pyright"] = function() end,
-	},
+-- Ensure mason-lspconfig installs the servers (but we don't use its handlers for setup)
+local status_ok2, mason_lspconfig = pcall(require, "mason-lspconfig")
+if status_ok2 then
+	mason_lspconfig.setup({
+		ensure_installed = { "jsonls", "ts_ls", "clangd", "ty" },
+		automatic_installation = false,
+		automatic_enable = false,
+	})
+end
+
+-- Default config applied to all servers
+vim.lsp.config("*", {
+	on_attach = on_attach,
 })
 
-lspconfig.gopls.setup({
-	on_attach = on_attach,
-	capabilities = require("zawed_lsp.handlers").capabilities,
+-- Per-server configs using native vim.lsp.config
+vim.lsp.config("jsonls", {})
+
+vim.lsp.config("ts_ls", {})
+
+vim.lsp.config("clangd", {})
+
+vim.lsp.config("gopls", {
 	cmd = { "gopls" },
 	filetypes = { "go", "gomod", "gowork", "gotmpl" },
 	settings = {
@@ -63,64 +52,23 @@ lspconfig.gopls.setup({
 	},
 })
 
-require("lspconfig").pyright.setup({
-	on_attach = on_attach,
-	capabilities = require("zawed_lsp.handlers").capabilities,
-	single_file_support = false, -- Prevent starting for single files outside projects
-	root_dir = require("lspconfig.util").root_pattern("pyproject.toml", "setup.py", ".git"),
+vim.lsp.config("ty", {
+	cmd = { "ty", "server" },
+	root_markers = { "ty.toml", "pyproject.toml", "setup.py", ".git" },
+	single_file_support = false,
 })
 
--- rust-tools config: https://github.com/simrat39/rust-tools.nvim
--- @TODOUA: selects on *abbles require manual close with no select
--- ... not handling nil in select telescope or otherwise
-require("rust-tools").setup({
-	server = {
-		on_attach = on_attach,
-		settings = {
-			["rust-analyzer"] = {
-				checkOnSave = {
-					command = "clippy",
-				},
+vim.lsp.config("rust_analyzer", {
+	settings = {
+		["rust-analyzer"] = {
+			checkOnSave = {
+				command = "clippy",
 			},
 		},
 	},
-	tools = {
-		--hover_with_actions = true,
-		inlay_hints = {
-			-- prefix for parameter hints
-			parameter_hints_prefix = "󰅲 ",
-
-			-- prefix for all the other hints (type, chaining)
-			other_hints_prefix = " ",
-		},
-	},
 })
 
-require("clangd_extensions").setup({
-	server = { on_attach = on_attach },
-})
-
---require("ccls").setup {
---lsp = {
----- check :help vim.lsp.start for config options
---server = {
---name = "ccls", --String name
---cmd = {"/usr/bin/ccls"}, -- point to your binary, has to be a table
---args = {[>Any args table<] },
---offset_encoding = "utf-32", -- default value set by plugin
---root_dir = vim.fs.dirname(vim.fs.find({ "compile_commands.json", ".git" }, { upward = true })[1]), -- or some other function that returns a string
-----on_attach = your_func,
-----capabilites = your_table/func
---},
---},
---}
---
-
---require("clangd_extensions").setup()
-
-lspconfig["lua_ls"].setup({
-	capabilities = require("zawed_lsp.handlers").capabilities,
-	on_attach = on_attach,
+vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -135,3 +83,17 @@ lspconfig["lua_ls"].setup({
 		},
 	},
 })
+
+-- Enable all configured servers
+vim.lsp.enable({
+	"jsonls",
+	"ts_ls",
+	"clangd",
+	"gopls",
+	"ty",
+	"rust_analyzer",
+	"lua_ls",
+})
+
+-- clangd_extensions still needs its own setup call
+require("clangd_extensions").setup({})

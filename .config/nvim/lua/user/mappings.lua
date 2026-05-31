@@ -134,9 +134,9 @@ vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>sp<CR>:terminal<CR>:resize -10<C
 --)
 
 -- Obsidian Mappings
-Nnoremap("<leader>os", "<cmd>ObsidianSearch<CR>")
-Nnoremap("<leader>od", "<cmd>ObsidianToday<CR>")
-Nnoremap("<leader>ot", "<cmd>ObsidianTags<CR>")
+Nnoremap("<leader>os", "<cmd>Obsidian search<CR>")
+Nnoremap("<leader>od", "<cmd>Obsidian today<CR>")
+Nnoremap("<leader>ot", "<cmd>Obsidian tags<CR>")
 Nnoremap("<leader>oc", "<cmd>ObsidianTOC<CR>")
 
 -- Oil key bindings
@@ -160,7 +160,6 @@ Nnoremap("<leader><leader>f", "<cmd>lua require('conform').format()<CR>")
 -- Vmap("<leader>cu", "<cmd>lua require('Comment.api').uncomment.linewise.current()<CR>")
 
 Nnoremap("<leader><leader>c", "<cmd>ClaudeCode<CR>")
-Nnoremap("<leader>p", "<cmd>lua require('nabla').toggle_virt()<CR>") -- Customize with popup({border = ...})  : `single` (default), `double`, `rounded`)
 
 -- api.uncomment.linewise(motion, config?)
 -- api.uncomment.linewise.current(motion?, config?)

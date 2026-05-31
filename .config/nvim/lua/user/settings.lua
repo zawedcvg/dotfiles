@@ -1,14 +1,13 @@
-vim.cmd [[
+vim.cmd([[
 ab sout System.out.println
 ab main_func public static void main(String[] args)
-]]
+]])
 
 local set = vim.o
 
-
-vim.opt.listchars = { tab = '▸ ', trail = '·' }
+vim.opt.listchars = { tab = "▸ ", trail = "·" }
 vim.opt.fillchars = {
-  diff = "╱", -- alternatives = ⣿ ░ ─ ╱
+	diff = "╱", -- alternatives = ⣿ ░ ─ ╱
 }
 vim.opt.conceallevel = 2
 set.list = true
@@ -17,13 +16,13 @@ set.list = true
 --set.noshowmode = true --for preventing the show of modes
 set.number = true
 set.hlsearch = true
-set.nrformats = 'unsigned'
+set.nrformats = "unsigned"
 set.relativenumber = true
 set.incsearch = true
-set.inccommand = 'split' --substitution stuff
+set.inccommand = "split" --substitution stuff
 set.laststatus = 3
-set.clipboard = 'unnamedplus'
-set.backspace = 'indent,eol,start'
+set.clipboard = "unnamedplus"
+set.backspace = "indent,eol,start"
 set.autoindent = true
 set.history = 200
 set.smartindent = true
@@ -40,19 +39,19 @@ set.smartcase = true
 set.undofile = true
 
 --for emmet
-vim.g['user_emmet_leader_key'] = '<C-e>'
+vim.g["user_emmet_leader_key"] = "<C-e>"
 
 --for indentblankline
-vim.g['indent_blankline_char'] = '▏'
+vim.g["indent_blankline_char"] = "▏"
 
 --for prettier
-vim.g['prettier#autoformat_config_present'] = 1
-vim.g['prettier#autoformat_require_pragma'] = 0
-vim.g['EasyClipUseSubstituteDefaults'] = 1
+vim.g["prettier#autoformat_config_present"] = 1
+vim.g["prettier#autoformat_require_pragma"] = 0
+vim.g["EasyClipUseSubstituteDefaults"] = 1
 
---filetype.nvim 
-vim.g['did_load_filetypes'] = 1
-vim.g['do_filetype_lua'] = 1
+--filetype.nvim
+vim.g["did_load_filetypes"] = 1
+vim.g["do_filetype_lua"] = 1
 
 --for colorscheme
 --vim.g['everforest_background'] = 'medium'
@@ -63,13 +62,7 @@ vim.g['do_filetype_lua'] = 1
 --vim.cmd[[colorscheme everforest]]
 --let g:everforest_background = 'medium'
 --let g:everforest_enable_italic = 1
-set.mouse = 'a'
+set.mouse = "a"
 set.signcolumn = "number"
-vim.cmd [[set splitbelow splitright
-]]
-
-
-require"nabla".enable_virt({
-  autogen = true, -- auto-regenerate ASCII art when exiting insert mode
-  silent = true,     -- silents error messages
-})
+vim.cmd([[set splitbelow splitright
+]])

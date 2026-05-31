@@ -68,6 +68,7 @@ return {
 	},
 	{ "nvim-treesitter/nvim-treesitter-textobjects" },
 	{ "windwp/nvim-ts-autotag" },
+	{ "nvim-treesitter/nvim-treesitter-context" },
 
 	-- Telescope
 	{
@@ -91,16 +92,24 @@ return {
 	{ "svermeulen/vim-subversive" },
 	{ "svermeulen/vim-cutlass" },
 	{ "nelstrom/vim-visual-star-search" },
-	{ "lukas-reineke/indent-blankline.nvim" },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {
+			scope = { enabled = false },
+		},
+	},
 	{ "raimondi/delimitmate" },
 	{ "numToStr/Comment.nvim" },
 
 	-- Markdown and LaTeX
-	{
-		"iamcco/markdown-preview.nvim",
-		ft = { "markdown", "vim-plug" },
-		build = "cd app && yarn install",
-	},
+	-- {
+	-- 	"iamcco/markdown-preview.nvim",
+	-- 	ft = { "markdown", "vim-plug" },
+	-- 	build = "cd app && yarn install",
+	-- },
 	{ "lervag/vimtex", ft = { "markdown" } },
 
 	-- Startup Time
@@ -121,9 +130,10 @@ return {
 		-- dependencies = { 'rafamadriz/friendly-snippets' },
 
 		-- use a release tag to download pre-built binaries
-		version = "1.*",
+		-- version = "1.*",
+		-- commit = "f85eb62",
 		-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-		-- build = 'cargo build --release',
+		build = "cargo build --release",
 		-- If you use nix, you can build from source using latest nightly rust with:
 		-- build = 'nix run .#build-plugin',
 
@@ -367,7 +377,7 @@ return {
 	-- { "zapling/mason-conform.nvim" },
 	{ "simrat39/rust-tools.nvim" },
 	{ "p00f/clangd_extensions.nvim" },
-	{ "SmiteshP/nvim-navic" },
+	-- { "SmiteshP/nvim-navic" },
 	{ "RRethy/vim-illuminate" },
 	{ "dnlhc/glance.nvim" },
 
@@ -375,39 +385,122 @@ return {
 	{ "junegunn/goyo.vim", cmd = "Goyo" },
 	{
 		"OXY2DEV/markview.nvim",
-		opts = {
-			latex = {
-				enable = false,
-			},
-			preview = {
-				callbacks = {
-					on_enable = function(_, win)
-						vim.wo[win].conceallevel = 2
-						-- This will prevent Tree-sitter concealment being disabled on the cmdline mode
-						vim.wo[win].concealcursor = "c"
-					end,
+		lazy = false,
+		opts = function()
+			local presets = require("markview.presets")
+			return {
+				latex = {
+					enable = false,
 				},
-				hybrid_modes = { "i", "n" },
-				modes = { "n", "c", "i" },
+				markdown = {
+					headings = presets.headings.glow,
+				},
+				preview = {
+					callbacks = {
+						on_enable = function(_, win)
+							vim.wo[win].conceallevel = 2
+							vim.wo[win].concealcursor = "c"
+						end,
+					},
+					hybrid_modes = { "i", "n" },
+					modes = { "n", "c", "i" },
+				},
+			}
+		end,
+		dependencies = { "saghen/blink.cmp" },
+	},
+
+	{
+		"obsidian-nvim/obsidian.nvim",
+		ft = "markdown",
+		lazy = false,
+		-- dependencies = { "saghen/blink.cmp" },
+		---@module 'obsidian'
+		---@type obsidian.config
+		opts = {
+			legacy_commands = false,
+			workspaces = {
+				{
+					name = "vault",
+					path = "~/stuff",
+				},
+			},
+			daily_notes = {
+				folder = "daily-notes",
+				date_format = "%Y-%m-%d",
+				alias_format = "%B %-d, %Y",
+				default_tags = { "daily-notes" },
+				template = "~/stuff/templates/daily",
+			},
+			templates = {
+				folder = "templates",
+				date_format = "%Y-%m-%d-%a",
+				time_format = "%H:%M",
+			},
+			ui = { enable = false },
+			completion = {
+				nvim_cmp = false,
+				blink = true,
+				min_chars = 1,
 			},
 		},
 	},
-	{ "epwalsh/obsidian.nvim" },
+
+	--require("obsidian").setup({
+	--workspaces = {
+	--{
+	--name = "vault",
+	--path = "~/stuff",
+	--},
+	--},
+	--
+	--ui = { enable = false },
+	--daily_notes = {
+	---- Optional, if you keep daily notes in a separate directory.
+	--folder = "daily-notes",
+	---- Optional, if you want to change the date format for the ID of daily notes.
+	--date_format = "%Y-%m-%d",
+	--alias_format = "%B %-d, %Y",
+	---- Optional, default tags to add to each new daily note created.
+	--default_tags = { "daily-notes" },
+	---- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+	--template = "~/stuff/templates/daily",
+	--},
+	--templates = {
+	--folder = "templates",
+	--date_format = "%Y-%m-%d-%a",
+	--time_format = "%H:%M",
+	--},
+	--
+	---- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
+	---- URL it will be ignored but you can customize this behavior here.
+	-----@param url string
+	--follow_url_func = function(url)
+	---- Open the URL in the default web browser.
+	----vim.fn.jobstart({"xdg-open", url})  -- linux
+	---- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+	--vim.ui.open(url) -- need Neovim 0.10.0+
+	--end,
+	--})
+	--
 	-- { "3rd/image.nvim" },
 	--
 	--
 	{
 		"folke/snacks.nvim",
+		priority = 1000,
 		---@type snacks.Config
 		opts = {
 			image = {
-				-- your image configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
+				resolve = function(path, src)
+					local api = require("obsidian.api")
+					if api.path_is_note(path) then
+						return api.resolve_attachment_path(src)
+					end
+				end,
 			},
 		},
 	},
-	{ "jbyuki/nabla.nvim" },
 
 	-- Notes and Structure
 	-- { "nvim-neorg/neorg", tag = "v7.0.0" },
@@ -497,6 +590,53 @@ return {
 					position = "vertical",
 				},
 			})
+		end,
+	},
+	{
+		"NickvanDyke/opencode.nvim",
+		dependencies = {
+			-- Recommended for `ask()` and `select()`.
+			-- Required for `snacks` provider.
+			---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
+			{ "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+		},
+		config = function()
+			---@type opencode.Opts
+			vim.g.opencode_opts = {
+				-- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on the type or field.
+			}
+
+			-- Required for `opts.events.reload`.
+			vim.o.autoread = true
+
+			-- Recommended/example keymaps.
+			vim.keymap.set({ "n", "x" }, "<C-t>", function()
+				require("opencode").ask("@this: ", { submit = true })
+			end, { desc = "Ask opencode…" })
+			vim.keymap.set({ "n", "x" }, "<C-'>", function()
+				require("opencode").select()
+			end, { desc = "Execute opencode action…" })
+			vim.keymap.set({ "n", "t" }, "<C-.>", function()
+				require("opencode").toggle()
+			end, { desc = "Toggle opencode" })
+
+			vim.keymap.set({ "n", "x" }, "go", function()
+				return require("opencode").operator("@this ")
+			end, { desc = "Add range to opencode", expr = true })
+			vim.keymap.set("n", "goo", function()
+				return require("opencode").operator("@this ") .. "_"
+			end, { desc = "Add line to opencode", expr = true })
+
+			vim.keymap.set("n", "<S-C-u>", function()
+				require("opencode").command("session.half.page.up")
+			end, { desc = "Scroll opencode up" })
+			vim.keymap.set("n", "<S-C-d>", function()
+				require("opencode").command("session.half.page.down")
+			end, { desc = "Scroll opencode down" })
+
+			-- You may want these if you stick with the opinionated "<C-a>" and "<C-x>" above — otherwise consider "<leader>o…".
+			-- vim.keymap.set("n", "+", "<C-a>", { desc = "Increment under cursor", noremap = true })
+			-- vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
 		end,
 	},
 }
