@@ -64,9 +64,11 @@ return {
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
 		build = ":TSUpdate",
+		lazy = false,
 	},
-	{ "nvim-treesitter/nvim-treesitter-textobjects" },
+	-- { "nvim-treesitter/nvim-treesitter-textobjects" },
 	{ "windwp/nvim-ts-autotag" },
 	{ "nvim-treesitter/nvim-treesitter-context" },
 
@@ -126,6 +128,7 @@ return {
 	--
 	{
 		"saghen/blink.cmp",
+		version = "1.*",
 		-- optional: provides snippets for the snippet source
 		-- dependencies = { 'rafamadriz/friendly-snippets' },
 
@@ -438,11 +441,6 @@ return {
 				time_format = "%H:%M",
 			},
 			ui = { enable = false },
-			completion = {
-				nvim_cmp = false,
-				blink = true,
-				min_chars = 1,
-			},
 		},
 	},
 
@@ -603,8 +601,55 @@ return {
 		config = function()
 			---@type opencode.Opts
 			vim.g.opencode_opts = {
-				-- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on the type or field.
+				events = {
+					permissions = {
+						edits = {
+							enabled = true,
+						},
+					},
+				},
 			}
+
+			-- local edits = require("opencode.events.permissions.edits")
+			-- local original_diff = edits.diff
+			-- edits.diff = function(event, server)
+			-- 	original_diff(event, server)
+			--
+			-- 	if event.type ~= "permission.asked" or event.properties.permission ~= "edit" then
+			-- 		return
+			-- 	end
+			--
+			-- 	local function existing(lhs)
+			-- 		return vim.fn.maparg(lhs, "n", false, true)
+			-- 	end
+			--
+			-- 	local default_maps = {
+			-- 		accept = existing("da"),
+			-- 		reject = existing("dr"),
+			-- 		accept_hunk = existing("dp"),
+			-- 		reject_hunk = existing("do"),
+			-- 		close = existing("q"),
+			-- 	}
+			--
+			-- 	for _, lhs in ipairs({ "da", "dr", "dp", "do", "q" }) do
+			-- 		pcall(vim.keymap.del, "n", lhs, { buffer = true })
+			-- 	end
+			--
+			-- 	local function remap(lhs, original, desc)
+			-- 		local opts = { buffer = true, desc = desc, expr = original.expr == 1 }
+			-- 		if original.callback then
+			-- 			vim.keymap.set("n", lhs, original.callback, opts)
+			-- 		elseif original.rhs and original.rhs ~= "" then
+			-- 			vim.keymap.set("n", lhs, original.rhs, opts)
+			-- 		end
+			-- 	end
+			--
+			-- 	remap("<leader>ea", default_maps.accept, "Accept opencode edit")
+			-- 	remap("<leader>er", default_maps.reject, "Reject opencode edit")
+			-- 	remap("<leader>ep", default_maps.accept_hunk, "Accept opencode edit hunk")
+			-- 	remap("<leader>eo", default_maps.reject_hunk, "Reject opencode edit hunk")
+			-- 	remap("<leader>eq", default_maps.close, "Close opencode edit diff")
+			-- end
 
 			-- Required for `opts.events.reload`.
 			vim.o.autoread = true

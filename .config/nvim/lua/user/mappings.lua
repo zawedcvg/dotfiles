@@ -159,8 +159,6 @@ Nnoremap("<leader><leader>f", "<cmd>lua require('conform').format()<CR>")
 -- Nnoremap("<leader>cu", "<cmd>lua require('Comment.api').uncomment.linewise.current()<CR>")
 -- Vmap("<leader>cu", "<cmd>lua require('Comment.api').uncomment.linewise.current()<CR>")
 
-Nnoremap("<leader><leader>c", "<cmd>ClaudeCode<CR>")
-
 -- api.uncomment.linewise(motion, config?)
 -- api.uncomment.linewise.current(motion?, config?)
 -- api.uncomment.linewise.count(count, config?)

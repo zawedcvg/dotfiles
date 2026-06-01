@@ -143,13 +143,6 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 
 lua << EOF
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = {"norg"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    highlight = {
-    enable = true,              -- false will disable the whole extension
-    },
-}
-
 require('distant'):setup {
     client = {
         log_file = '~/temp/client.log'
@@ -306,42 +299,6 @@ glance.setup({
   --end,
   --})
 --
-require'nvim-treesitter.configs'.setup {
-  textobjects = {
-    select = {
-      enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        -- You can optionally set descriptions to the mappings (used in the desc parameter of
-        -- nvim_buf_set_keymap) which plugins like which-key display
-        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-        -- You can also use captures from other query groups like `locals.scm`
-        ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
-      },
-      -- You can choose the select mode (default is charwise 'v')
-      --
-      -- * selection_mode: eg 'v'
-      -- and should return true or false
-      include_surrounding_whitespace = true,
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        ["<leader><leader>a"] = "@parameter.inner",
-      },
-      swap_previous = {
-        ["<leader><leader>A"] = "@parameter.inner",
-      },
-    },
-  },
-}
 
 require('Comment').setup({
     ---Add a space b/w comment and the line
@@ -446,4 +403,3 @@ require('Comment').setup({
 --})
 
 vim.cmd("colorscheme catppuccin-macchiato")
-
