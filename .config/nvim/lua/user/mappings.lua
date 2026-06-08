@@ -153,6 +153,19 @@ Nnoremap("gR", "<cmd>Glance references<CR>")
 
 Nnoremap("<leader><leader>f", "<cmd>lua require('conform').format()<CR>")
 
+local opencode_cmd = "opencode --port"
+---@type snacks.terminal.Opts
+local snacks_terminal_opts = {
+	win = {
+		position = "right",
+		enter = false,
+	},
+}
+
+vim.keymap.set({ "n", "t" }, "<C-.>", function()
+	require("snacks.terminal").toggle(opencode_cmd, snacks_terminal_opts)
+end, { desc = "Toggle opencode" })
+
 -- local api = require('Comment.api')
 -- local config = require('Comment.config'):get()
 --

@@ -497,6 +497,7 @@ return {
 					end
 				end,
 			},
+			terminal = {},
 		},
 	},
 
@@ -592,6 +593,7 @@ return {
 	},
 	{
 		"NickvanDyke/opencode.nvim",
+		dir = vim.fn.expand("~/.config/nvim/lua/plugins/opencode.nvim/"),
 		dependencies = {
 			-- Recommended for `ask()` and `select()`.
 			-- Required for `snacks` provider.
@@ -599,6 +601,9 @@ return {
 			{ "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
 		},
 		config = function()
+			local source = debug.getinfo(require("opencode").ask, "S").source:gsub("^@", "")
+			print("opencode.nvim loaded from: " .. source)
+
 			---@type opencode.Opts
 			vim.g.opencode_opts = {
 				events = {
@@ -661,9 +666,6 @@ return {
 			vim.keymap.set({ "n", "x" }, "<C-'>", function()
 				require("opencode").select()
 			end, { desc = "Execute opencode action…" })
-			vim.keymap.set({ "n", "t" }, "<C-.>", function()
-				require("opencode").toggle()
-			end, { desc = "Toggle opencode" })
 
 			vim.keymap.set({ "n", "x" }, "go", function()
 				return require("opencode").operator("@this ")
@@ -672,10 +674,10 @@ return {
 				return require("opencode").operator("@this ") .. "_"
 			end, { desc = "Add line to opencode", expr = true })
 
-			vim.keymap.set("n", "<S-C-u>", function()
+			vim.keymap.set("n", "<leader><leader>u>", function()
 				require("opencode").command("session.half.page.up")
 			end, { desc = "Scroll opencode up" })
-			vim.keymap.set("n", "<S-C-d>", function()
+			vim.keymap.set("n", "<leader><leader>d", function()
 				require("opencode").command("session.half.page.down")
 			end, { desc = "Scroll opencode down" })
 
