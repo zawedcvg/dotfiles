@@ -1,0 +1,99 @@
+#!/usr/bin/env sh
+set -eu
+
+PATH="$HOME/.local/bin:$PATH"
+
+mode="${1:-quote}"
+file="${2:-}"
+page_zero="${3:-0}"
+text="${4:-}"
+color="${5:-yellow}"
+selection_begin="${6:-}"
+offset_x_document="${7:-}"
+offset_y_document="${8:-}"
+
+strip_edge_quotes() {
+	value=$1
+	value=${value#\"}
+	value=${value%\"}
+	value=${value#\'}
+	value=${value%\'}
+	printf '%s' "$value"
+}
+
+mode=$(strip_edge_quotes "$mode")
+file=$(strip_edge_quotes "$file")
+page_zero=$(strip_edge_quotes "$page_zero")
+text=$(strip_edge_quotes "$text")
+color=$(strip_edge_quotes "$color")
+selection_begin=$(strip_edge_quotes "$selection_begin")
+offset_x_document=$(strip_edge_quotes "$offset_x_document")
+offset_y_document=$(strip_edge_quotes "$offset_y_document")
+
+if [ -z "$file" ]; then
+	printf '%s\n' 'sioyek-note: missing PDF path' >&2
+	exit 2
+fi
+
+set -- $selection_begin
+selection_page_zero=$(strip_edge_quotes "${1:-}")
+selection_x=$(strip_edge_quotes "${2:-}")
+selection_y=$(strip_edge_quotes "${3:-}")
+xloc="${offset_x_document:-$selection_x}"
+yloc="${offset_y_document:-$selection_y}"
+
+case "$selection_page_zero" in
+	''|*[!0-9]*) page_from_selection="" ;;
+	*) page_from_selection=$((selection_page_zero + 1)) ;;
+esac
+
+case "$page_zero" in
+	''|*[!0-9]*) page_from_view="" ;;
+	*) page_from_view=$((page_zero + 1)) ;;
+esac
+
+if [ -n "$offset_x_document" ] || [ -n "$offset_y_document" ]; then
+	page_source=$page_from_view
+else
+	page_source=${page_from_selection:-$page_from_view}
+fi
+
+case "$page_source" in
+	''|*[!0-9]*) page=1 ;;
+	*) page="$page_source" ;;
+esac
+
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/nvim"
+note_file="$cache_dir/sioyek-last-note.txt"
+server_file="$cache_dir/sioyek-nvim-server"
+mkdir -p "$cache_dir"
+
+{
+	printf '%s\n' "$mode"
+	printf '%s\n' "$file"
+	printf '%s\n' "$page"
+	printf '%s\n' "$color"
+	printf '%s\n' "$xloc"
+	printf '%s\n' "$yloc"
+	printf '%s\n' '---text---'
+	printf '%s\n' "$text"
+} > "$note_file"
+
+server_name=""
+if [ -s "$server_file" ]; then
+	IFS= read -r server_name < "$server_file" || server_name=""
+fi
+
+if [ -n "$server_name" ] && command -v nvim >/dev/null 2>&1; then
+	nvim --server "$server_name" --remote-send "<Esc>:lua require('zawed_plugin.research_pdf').insert_last_sioyek_note()<CR>" >/dev/null 2>&1 && exit 0
+fi
+
+if command -v nvr >/dev/null 2>&1; then
+	if [ -n "$server_name" ]; then
+		nvr --servername "$server_name" --remote-send "<Esc>:lua require('zawed_plugin.research_pdf').insert_last_sioyek_note()<CR>" >/dev/null 2>&1 && exit 0
+	fi
+
+	nvr --remote-send "<Esc>:lua require('zawed_plugin.research_pdf').insert_last_sioyek_note()<CR>" >/dev/null 2>&1 && exit 0
+fi
+
+printf 'sioyek-note: wrote %s; run :PdfInsertLastSioyekNote in Neovim\n' "$note_file" >&2
